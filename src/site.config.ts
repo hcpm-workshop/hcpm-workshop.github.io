@@ -4,9 +4,9 @@ import type { SiteConfig } from "@/types";
 export const siteConfig: SiteConfig = {
 	url: "https://hcpm-workshop.github.io/",
 	title: "HCPM Summer School 2026",
-	author: "CARE Lab & IMD Lab, NAIST",
+	author: "CARE Lab and IMD Lab, NAIST",
 	description:
-		"1st German-Japanese Summer School on Human-Centred Perception Modelling in XR — 14–18 September 2026, NAIST, Nara, Japan.",
+		"1st German-Japanese Summer School on Human-Centred Perception Modelling in XR, 14–18 September 2026, NAIST, Nara, Japan.",
 	lang: "en-GB",
 	ogLocale: "en_GB",
 	date: {
@@ -19,7 +19,7 @@ export const siteConfig: SiteConfig = {
 	},
 };
 
-// Navigation links — shown in Header & Footer
+// Navigation links — shown in Header and Footer
 export const menuLinks: { path: string; title: string }[] = [
 	{
 		path: "/",
@@ -28,10 +28,6 @@ export const menuLinks: { path: string; title: string }[] = [
 	{
 		path: "/programme/",
 		title: "Programme",
-	},
-	{
-		path: "/activities/",
-		title: "Activities",
 	},
 	{
 		path: "/organisers/",
