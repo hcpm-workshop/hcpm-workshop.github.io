@@ -1,76 +1,177 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
-import PostPreview from "@/components/blog/PostPreview.astro";
-import Note from "@/components/note/Note.astro";
-import SocialList from "@/components/SocialList.astro";
-import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-import { collectionDateSort } from "@/utils/date";
 
-// Posts
-const MAX_POSTS = 10;
-const allPosts = await getAllPosts();
-const allPostsByDate = allPosts.sort(collectionDateSort) as CollectionEntry<"post">[];
-const latestPosts = allPostsByDate.slice(0, MAX_POSTS);
+const stages = [
+	{
+		num: "01",
+		title: "Expert Input",
+		text: "Researchers from Germany and Japan introduce key topics in XR, perception, AI, and robotics.",
+	},
+	{
+		num: "02",
+		title: "Research Ideation",
+		text: "In a cross-cultural team: identify a research question, review literature, scope an approach.",
+	},
+	{
+		num: "03",
+		title: "Prototype & Test",
+		text: "Build and refine an experiment or prototype with peer and faculty feedback.",
+	},
+	{
+		num: "04",
+		title: "Share & Go Further",
+		text: "Present results on the final day. Promising projects may continue towards future publications.",
+	},
+];
 
-// Pinned Posts, set to a max of 3;
-const MAX_PINNED_POSTS = 3;
-const pinnedPosts = allPostsByDate
-	.values()
-	.filter((p) => p.data.pinned)
-	.take(MAX_PINNED_POSTS)
-	.toArray();
+const topics = [
+	"Visual Attention Modelling & Metrics",
+	"Multisensory Perception & Integration",
+	"Perceptual Vision Augmentation",
+	"AI Methods for Perception Research",
+	"Human-Robot Interaction",
+];
 
-// Notes, set to a max of 5
-const MAX_NOTES = 5;
-const allNotes = await getCollection("note");
-const latestNotes = allNotes
-	.sort(collectionDateSort)
-	.slice(0, MAX_NOTES) as CollectionEntry<"note">[];
+const applyItems = [
+	"Master's or early PhD students",
+	"Background in CS, HCI, or XR",
+	"Interest in multidisciplinary research",
+];
+
+const takeawayItems = [
+	"Build an international research network",
+	"Remotely co-supervised research project",
+	"Potential path towards future publications",
+	"Opportunity for a research visit in Germany",
+];
 ---
 
-<PageLayout meta={{ title: "Home" }}>
-	<section>
-		<h1 class="title mb-12">Hello World!</h1>
-		<p class="mb-4">
-			Hi, I’m a theme for Astro, a simple starter that you can use to create your website or blog.
-			If you want to know more about how you can customise me, add more posts, and make it your own,
-			click on the GitHub icon link below and it will take you to my repo.
+<PageLayout
+	meta={{
+		title: "Home",
+		description:
+			"1st German-Japanese Summer School on Human-Centred Perception Modelling in XR — 14–18 September 2026 at NAIST, Nara, Japan.",
+	}}
+>
+	<!-- Hero -->
+	<section class="mb-14">
+		<p class="text-muted mb-3 font-mono text-xs font-semibold uppercase tracking-widest">
+			14–18 September 2026 · NAIST, Nara, Japan
 		</p>
-		<SocialList />
+		<h1 class="title mb-3 text-3xl leading-tight">
+			1st German-Japanese<br />Summer School
+		</h1>
+		<p class="text-accent-2 mb-6 text-lg font-semibold">
+			Human-Centred Perception Modelling in XR
+		</p>
+		<p class="mb-5 leading-relaxed">
+			A five-day intensive research workshop bringing together students and researchers from Japan
+			and Germany to explore cutting-edge topics in extended reality, human perception, and AI.
+			Hosted by CARE Lab &amp; IMD Lab at NAIST in collaboration with HSRM, Germany.
+		</p>
+		<p class="text-muted text-sm">
+			Participation is free of charge. · Enquiries: <a
+				class="cactus-link"
+				href="mailto:kiyo@is.naist.jp">kiyo@is.naist.jp</a
+			>
+		</p>
 	</section>
-	{
-		pinnedPosts.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title mb-6 text-xl">Pinned Posts</h2>
-				<ul class="space-y-4" role="list">
-					{pinnedPosts.map((p) => (
-						<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-							<PostPreview post={p} />
-						</li>
-					))}
-				</ul>
-			</section>
-		)
-	}
-	<section class="mt-16">
-		<h2 class="title text-accent mb-6 text-xl"><a href="/posts/">Posts</a></h2>
-		<ul class="space-y-4" role="list">
+
+	<!-- Programme stages -->
+	<section class="mb-14">
+		<h2 class="title mb-6 text-xl">The Programme</h2>
+		<div class="grid gap-4 sm:grid-cols-2">
 			{
-				latestPosts.map((p) => (
-					<li class="grid gap-1 sm:grid-cols-[auto_1fr]">
-						<PostPreview post={p} />
+				stages.map(({ num, title, text }) => (
+					<div class="border-muted rounded border p-4">
+						<p class="text-accent mb-1 font-mono text-xs">{num}</p>
+						<h3 class="text-accent-2 mb-1 font-semibold">{title}</h3>
+						<p class="text-muted text-sm leading-relaxed">{text}</p>
+					</div>
+				))
+			}
+		</div>
+		<p class="mt-4 text-sm">
+			<a class="cactus-link" href="/programme/">View the full schedule →</a>
+		</p>
+	</section>
+
+	<!-- Lecture Topics -->
+	<section class="mb-14">
+		<h2 class="title mb-4 text-xl">Lecture Topics</h2>
+		<ul class="space-y-1">
+			{
+				topics.map((t) => (
+					<li class="text-muted flex items-start gap-2 text-sm">
+						<span class="text-accent mt-0.5 shrink-0">—</span>
+						<span>{t}</span>
 					</li>
 				))
 			}
 		</ul>
 	</section>
-	{
-		latestNotes.length > 0 && (
-			<section class="mt-16">
-				<h2 class="title text-accent mb-6 text-xl">
-					<a href="/notes/">Notes</a>
-				</h2>
+
+	<!-- Who & What -->
+	<section class="mb-14 grid gap-10 sm:grid-cols-2">
+		<div>
+			<h2 class="title mb-4 text-xl">Who Should Apply</h2>
+			<ul class="space-y-1">
+				{
+					applyItems.map((a) => (
+						<li class="text-muted flex items-start gap-2 text-sm">
+							<span class="text-accent mt-0.5 shrink-0">—</span>
+							<span>{a}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+		<div>
+			<h2 class="title mb-4 text-xl">What You Take Away</h2>
+			<ul class="space-y-1">
+				{
+					takeawayItems.map((t) => (
+						<li class="text-muted flex items-start gap-2 text-sm">
+							<span class="text-accent mt-0.5 shrink-0">—</span>
+							<span>{t}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<!-- Activities -->
+	<section class="mb-14">
+		<h2 class="title mb-6 text-xl">Activities &amp; Excursion</h2>
+		<div class="grid gap-4 sm:grid-cols-2">
+			<div class="border-muted rounded border p-4">
+				<h3 class="text-accent-2 mb-2 font-semibold">Welcome Dinner</h3>
+				<p class="text-muted text-sm leading-relaxed">
+					Informal dinner with faculty and fellow participants on the first evening.
+				</p>
+			</div>
+			<div class="border-muted rounded border p-4">
+				<h3 class="text-accent-2 mb-2 font-semibold">
+					Day Trip <span class="text-muted ml-1 text-xs font-normal">(tentative)</span>
+				</h3>
+				<p class="text-muted text-sm leading-relaxed">
+					Guided full-day excursion to the Nara / Kyoto area on Day 4.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer note -->
+	<section class="border-muted rounded border p-5 text-sm">
+		<p class="text-muted leading-relaxed">
+			Hosted by <span class="text-global-text font-semibold">CARE Lab &amp; IMD Lab</span>, Nara
+			Institute of Science and Technology (NAIST), Japan · In collaboration with <span
+				class="text-global-text font-semibold">HSRM</span
+			>, Hochschule RheinMain, Germany.
+		</p>
+	</section>
+</PageLayout>				</h2>
 				<ul class="space-y-6" role="list">
 					{latestNotes.map((note) => (
 						<li>
