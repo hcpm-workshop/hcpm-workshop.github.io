@@ -23,14 +23,6 @@ const stages = [
 		text: "Present results on the final day. Promising projects may continue towards future publications.",
 	},
 ];
-
-const topics = [
-	"Visual Attention Modelling",
-	"Multisensory Perception",
-	"Perceptual Vision Augmentation",
-	"AI Methods for Perception",
-	"Human-Robot Interaction",
-];
 ---
 
 <PageLayout
@@ -110,10 +102,40 @@ const topics = [
 
 	<!-- ── LECTURE TOPICS ────────────────────────────────────────────────── -->
 	<section class="mb-14">
-		<h2 class="title mb-4 text-xl">Topics Covered</h2>
-		<div class="flex flex-wrap gap-2">
-			{topics.map((t) => <span class="border-muted rounded-full border px-4 py-1.5 text-sm">{t}</span>)}
+		<h2 class="title mb-3 text-xl">Lecture Topics</h2>
+		<p class="text-muted leading-relaxed text-sm">
+			Visual Attention Modelling &amp; Metrics · Multisensory Perception &amp; Integration ·
+			Perceptual Vision Augmentation · AI Methods for Perception Research · Human-Robot Interaction
+		</p>
+	</section>
+
+	<!-- ── WHO SHOULD APPLY / WHAT YOU TAKE AWAY ────────────────────────── -->
+	<section class="mb-14 grid gap-10 sm:grid-cols-2">
+		<div>
+			<h2 class="title mb-3 text-xl">Who Should Apply</h2>
+			<p class="text-muted text-sm leading-relaxed">
+				Master's or early PhD students with a background in Computer Science, HCI, or XR who are
+				interested in cross-cultural, multidisciplinary research.
+			</p>
 		</div>
+		<div>
+			<h2 class="title mb-3 text-xl">What You Take Away</h2>
+			<p class="text-muted text-sm leading-relaxed">
+				An international research network across NAIST and HSRM, a remotely co-supervised research
+				project, and a potential path towards future publications and a research visit in Germany.
+			</p>
+		</div>
+	</section>
+
+	<!-- ── EVENT POSTER ──────────────────────────────────────────────────── -->
+	<!--
+		To activate: export the poster as PDF → upload to /public/hcpm-summer-school-2026-poster.pdf
+		Then replace the paragraph below with:
+		<a class="cactus-link font-semibold" href="/hcpm-summer-school-2026-poster.pdf" download>↓ Download event poster (PDF)</a>
+	-->
+	<section class="mb-14">
+		<h2 class="title mb-3 text-xl">Event Poster</h2>
+		<p class="text-muted text-sm">The event poster will be available for download here soon.</p>
 	</section>
 
 	<!-- ── VENUE & LOCATION ──────────────────────────────────────────────── -->
@@ -122,14 +144,17 @@ const topics = [
 		<div class="mb-5 grid gap-3 sm:grid-cols-2">
 			<figure>
 				<div class="overflow-hidden rounded-lg">
-					<!-- Replace: upload a NAIST campus photo to /public/images/naist.jpg → src="/images/naist.jpg" -->
+					<!--
+						Left card: NAIST main entrance (official NAIST image).
+						Replace with your own campus photo: upload to /public/images/naist.jpg → src="/images/naist.jpg"
+					-->
 					<img
-						src="https://commons.wikimedia.org/wiki/Special:FilePath/Kofukuji_Pagoda_2011.jpg"
-						alt="Kofuku-ji Five-Story Pagoda, Nara — near NAIST"
+						src="https://www.naist.jp/en/toppage-banner/img/main_entrance.png"
+						alt="NAIST main entrance, Ikoma, Nara"
 						width="800"
 						height="190"
 						class="w-full object-cover"
-						style="height: 190px; object-position: center 30%;"
+						style="height: 190px; object-position: center 50%;"
 					/>
 				</div>
 				<figcaption class="text-muted mt-1.5 text-xs">
@@ -144,7 +169,9 @@ const topics = [
 			</figure>
 			<figure>
 				<div class="overflow-hidden rounded-lg">
-					<!-- Replace: upload an excursion photo to /public/images/excursion.jpg → src="/images/excursion.jpg" -->
+					<!--
+						Right card: Excursion area. Replace with own photo: /public/images/excursion.jpg
+					-->
 					<img
 						src="https://commons.wikimedia.org/wiki/Special:FilePath/20100716_Nara_Kasuga-taisha_2196.jpg"
 						alt="Kasuga Taisha shrine, Nara — Day 4 excursion area"
@@ -155,23 +182,23 @@ const topics = [
 					/>
 				</div>
 				<figcaption class="text-muted mt-1.5 text-xs">
-					Day 4 Excursion — Nara / Kyoto area ·
+					Day 4 Excursion — Nara area ·
 					<a class="cactus-link" href="/activities/">Details →</a>
 				</figcaption>
 			</figure>
 		</div>
 		<p class="text-muted text-sm leading-relaxed">
 			The summer school takes place at NAIST (Nara Institute of Science and Technology) in Ikoma,
-			Nara Prefecture — easily accessible from Osaka and Kyoto. The Nara region is home to
-			UNESCO World Heritage temples, ancient shrines, and scenic countryside.
+			Nara Prefecture — easily accessible from Osaka and Kyoto. The Nara region is home to UNESCO
+			World Heritage temples, ancient shrines, and scenic countryside.
 		</p>
 	</section>
 
-	<!-- ── PARTNERS / CONTACT ────────────────────────────────────────────── -->
-	<section class="border-muted rounded border p-5 text-sm">
-		<p class="text-muted leading-relaxed">
-			Hosted by <strong class="text-global-text">CARE Lab &amp; IMD Lab</strong>, Nara Institute
-			of Science and Technology (NAIST), Japan · in collaboration with
+	<!-- ── PARTNERS ──────────────────────────────────────────────────────── -->
+	<section class="text-muted mb-6 text-sm">
+		<p class="leading-relaxed">
+			Hosted by <strong class="text-global-text">CARE Lab &amp; IMD Lab</strong>, Nara Institute of
+			Science and Technology (NAIST), Japan · in collaboration with
 			<strong class="text-global-text">LAVIS Lab</strong>, Hochschule RheinMain (HSRM), Germany.
 		</p>
 	</section>
