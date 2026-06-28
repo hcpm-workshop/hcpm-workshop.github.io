@@ -53,23 +53,64 @@ const takeawayItems = [
 			"1st German-Japanese Summer School on Human-Centred Perception Modelling in XR — 14–18 September 2026 at NAIST, Nara, Japan.",
 	}}
 >
-	<!-- Hero -->
+	<!-- ── HERO ──────────────────────────────────────────────────────────── -->
+	<!-- Replace the src with your own NAIST campus photo uploaded to /public/images/ -->
+	<section class="-mx-4 sm:-mx-8 relative mb-14 overflow-hidden">
+		<img
+			src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1400&q=80"
+			alt="Nara deer roaming near Tōdai-ji temple, Japan"
+			width="1400"
+			height="420"
+			class="w-full object-cover"
+			style="height: 420px; object-position: center 55%;"
+		/>
+		<div
+			class="absolute inset-0 flex items-end"
+			style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0.10) 100%);"
+		>
+			<div class="w-full p-6 sm:p-10">
+				<p class="mb-2 font-mono text-xs uppercase tracking-widest text-white/60">
+					14–18 September 2026 · NAIST, Nara, Japan
+				</p>
+				<h1 class="mb-1 text-2xl font-bold leading-snug text-white sm:text-3xl">
+					1st German-Japanese Summer School
+				</h1>
+				<p class="mb-5 text-base font-semibold text-white/90 sm:text-xl">
+					Human-Centred Perception Modelling in XR
+				</p>
+				<div class="flex flex-wrap gap-2">
+					<span
+						class="rounded-full border border-white/30 px-3 py-1 text-xs text-white"
+						style="background: rgba(255,255,255,0.12);"
+					>
+						Free to attend
+					</span>
+					<span
+						class="rounded-full border border-white/30 px-3 py-1 text-xs text-white"
+						style="background: rgba(255,255,255,0.12);"
+					>
+						NAIST + HSRM
+					</span>
+					<span
+						class="rounded-full border border-white/30 px-3 py-1 text-xs text-white"
+						style="background: rgba(255,255,255,0.12);"
+					>
+						5 days · 7 lectures
+					</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ── ABOUT ─────────────────────────────────────────────────────────── -->
 	<section class="mb-14">
-		<p class="text-muted mb-3 font-mono text-xs font-semibold uppercase tracking-widest">
-			14–18 September 2026 · NAIST, Nara, Japan
+		<p class="leading-relaxed">
+			A five-day intensive research workshop bringing together Master's and PhD students from Japan
+			and Germany to explore cutting-edge topics in extended reality, perception modelling, and AI.
+			Hosted by CARE Lab &amp; IMD Lab at NAIST in collaboration with the LAVIS Lab at HSRM,
+			Germany.
 		</p>
-		<h1 class="title mb-3 text-3xl leading-tight">
-			1st German-Japanese<br />Summer School
-		</h1>
-		<p class="text-accent-2 mb-6 text-lg font-semibold">
-			Human-Centred Perception Modelling in XR
-		</p>
-		<p class="mb-5 leading-relaxed">
-			A five-day intensive research workshop bringing together students and researchers from Japan
-			and Germany to explore cutting-edge topics in extended reality, human perception, and AI.
-			Hosted by CARE Lab &amp; IMD Lab at NAIST in collaboration with HSRM, Germany.
-		</p>
-		<p class="text-muted text-sm">
+		<p class="text-muted mt-3 text-sm">
 			Participation is free of charge. · Enquiries: <a
 				class="cactus-link"
 				href="mailto:kiyo@is.naist.jp">kiyo@is.naist.jp</a
@@ -77,14 +118,14 @@ const takeawayItems = [
 		</p>
 	</section>
 
-	<!-- Programme stages -->
+	<!-- ── PROGRAMME STAGES ──────────────────────────────────────────────── -->
 	<section class="mb-14">
 		<h2 class="title mb-6 text-xl">The Programme</h2>
-		<div class="grid gap-4 sm:grid-cols-2">
+		<div class="grid gap-3 sm:grid-cols-2">
 			{
 				stages.map(({ num, title, text }) => (
 					<div class="border-muted rounded border p-4">
-						<p class="text-accent mb-1 font-mono text-xs">{num}</p>
+						<p class="text-accent mb-1 font-mono text-xs font-semibold">{num}</p>
 						<h3 class="text-accent-2 mb-1 font-semibold">{title}</h3>
 						<p class="text-muted text-sm leading-relaxed">{text}</p>
 					</div>
@@ -96,23 +137,71 @@ const takeawayItems = [
 		</p>
 	</section>
 
-	<!-- Lecture Topics -->
+	<!-- ── VENUE & LOCATION ──────────────────────────────────────────────── -->
 	<section class="mb-14">
-		<h2 class="title mb-4 text-xl">Lecture Topics</h2>
-		<ul class="space-y-1">
-			{
-				topics.map((t) => (
-					<li class="text-muted flex items-start gap-2 text-sm">
-						<span class="text-accent mt-0.5 shrink-0">—</span>
-						<span>{t}</span>
-					</li>
-				))
-			}
-		</ul>
+		<h2 class="title mb-5 text-xl">Venue &amp; Location</h2>
+		<div class="mb-5 grid gap-3 sm:grid-cols-2">
+			<figure>
+				<div class="overflow-hidden rounded-lg">
+					<!-- Replace: upload an actual NAIST campus photo to /public/images/naist.jpg -->
+					<img
+						src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=800&q=80"
+						alt="NAIST campus, Ikoma, Nara Prefecture"
+						width="800"
+						height="190"
+						class="w-full object-cover"
+						style="height: 190px; object-position: center 40%;"
+					/>
+				</div>
+				<figcaption class="text-muted mt-1.5 text-xs">
+					NAIST, Ikoma, Nara Prefecture ·
+					<a
+						class="cactus-link"
+						href="https://www.naist.jp/en/"
+						target="_blank"
+						rel="noreferrer noopener">naist.jp</a
+					>
+				</figcaption>
+			</figure>
+			<figure>
+				<div class="overflow-hidden rounded-lg">
+					<!-- Replace: upload a Nara/Kyoto excursion photo to /public/images/nara-excursion.jpg -->
+					<img
+						src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80"
+						alt="Nara deer park — Day 4 excursion area"
+						width="800"
+						height="190"
+						class="w-full object-cover"
+						style="height: 190px; object-position: center 65%;"
+					/>
+				</div>
+				<figcaption class="text-muted mt-1.5 text-xs">
+					Day 4 Excursion — Nara / Kyoto area
+				</figcaption>
+			</figure>
+		</div>
+		<p class="text-muted text-sm leading-relaxed">
+			The summer school takes place at NAIST (Nara Institute of Science and Technology) in Ikoma,
+			Nara Prefecture — easily accessible from Osaka and Kyoto. The Nara region is famous for its
+			UNESCO World Heritage temples, deer park, and scenic countryside, providing a unique setting
+			for a cross-cultural research experience.
+		</p>
 	</section>
 
-	<!-- Who & What -->
-	<section class="mb-14 grid gap-10 sm:grid-cols-2">
+	<!-- ── LECTURE TOPICS ────────────────────────────────────────────────── -->
+	<section class="mb-14">
+		<h2 class="title mb-5 text-xl">Lecture Topics</h2>
+		<div class="flex flex-wrap gap-2">
+			{
+				topics.map((t) => (
+					<span class="border-muted rounded-full border px-4 py-1.5 text-sm">{t}</span>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- ── WHO / TAKE AWAY ───────────────────────────────────────────────── -->
+	<section class="mb-14 grid gap-8 sm:grid-cols-2">
 		<div>
 			<h2 class="title mb-4 text-xl">Who Should Apply</h2>
 			<ul class="space-y-1">
@@ -141,34 +230,58 @@ const takeawayItems = [
 		</div>
 	</section>
 
-	<!-- Activities -->
+	<!-- ── ACTIVITIES & EXCURSION ────────────────────────────────────────── -->
 	<section class="mb-14">
-		<h2 class="title mb-6 text-xl">Activities &amp; Excursion</h2>
+		<h2 class="title mb-5 text-xl">Activities &amp; Excursion</h2>
+
+		<!-- Wide image banner for the excursion -->
+		<!-- Replace: upload your own excursion destination photo to /public/images/excursion.jpg -->
+		<div class="-mx-4 sm:-mx-8 relative mb-5 overflow-hidden">
+			<img
+				src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1400&q=80"
+				alt="Nara Park — Day 4 guided excursion"
+				width="1400"
+				height="200"
+				class="w-full object-cover"
+				style="height: 210px; object-position: center 75%;"
+			/>
+			<div
+				class="absolute inset-0 flex items-center px-6 sm:px-10"
+				style="background: linear-gradient(to right, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.35) 60%, transparent 100%);"
+			>
+				<div>
+					<p class="font-semibold text-white">Day 4 — Full-Day Excursion</p>
+					<p class="text-sm text-white/80">
+						Guided trip to the Nara / Kyoto area (tentative destination)
+					</p>
+				</div>
+			</div>
+		</div>
+
 		<div class="grid gap-4 sm:grid-cols-2">
 			<div class="border-muted rounded border p-4">
 				<h3 class="text-accent-2 mb-2 font-semibold">Welcome Dinner</h3>
 				<p class="text-muted text-sm leading-relaxed">
-					Informal dinner with faculty and fellow participants on the first evening.
+					Informal dinner with faculty and fellow participants on Tuesday evening — a chance to
+					connect across institutions.
 				</p>
 			</div>
 			<div class="border-muted rounded border p-4">
-				<h3 class="text-accent-2 mb-2 font-semibold">
-					Day Trip <span class="text-muted ml-1 text-xs font-normal">(tentative)</span>
-				</h3>
+				<h3 class="text-accent-2 mb-2 font-semibold">Cross-Cultural Teams</h3>
 				<p class="text-muted text-sm leading-relaxed">
-					Guided full-day excursion to the Nara / Kyoto area on Day 4.
+					Work in interdisciplinary groups with students from Japan and Germany throughout the
+					five-day programme.
 				</p>
 			</div>
 		</div>
 	</section>
 
-	<!-- Footer note -->
+	<!-- ── PARTNERS ──────────────────────────────────────────────────────── -->
 	<section class="border-muted rounded border p-5 text-sm">
 		<p class="text-muted leading-relaxed">
-			Hosted by <span class="text-global-text font-semibold">CARE Lab &amp; IMD Lab</span>, Nara
-			Institute of Science and Technology (NAIST), Japan · In collaboration with <span
-				class="text-global-text font-semibold">HSRM</span
-			>, Hochschule RheinMain, Germany.
+			Hosted by <strong class="text-global-text">CARE Lab &amp; IMD Lab</strong>, Nara Institute
+			of Science and Technology (NAIST), Japan · in collaboration with
+			<strong class="text-global-text">LAVIS Lab</strong>, Hochschule RheinMain (HSRM), Germany.
 		</p>
 	</section>
 </PageLayout>
