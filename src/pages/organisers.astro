@@ -7,10 +7,12 @@ import PageLayout from "@/layouts/Base.astro";
 */
 
 const naist = {
-	address: "Nara Institute of Science and Technology, 8916-5 Takayama-cho, Ikoma, Nara 630-0192",
+	name: "Nara Institute of Science and Technology (NAIST)",
+	address: "8916-5 Takayama-cho, Ikoma, Nara 630-0192, Japan",
 	labs: [
 		{
 			lab: "CARE Lab",
+			labFull: "Computational Augmented Reality Engineering Lab (CARE Lab)",
 			members: [
 				{
 					title: "Dr.-Eng.",
@@ -28,6 +30,7 @@ const naist = {
 		},
 		{
 			lab: "IMD Lab",
+			labFull: "Interactive Media Design Lab (IMD Lab)",
 			members: [
 				{
 					title: "Associate Professor",
@@ -47,10 +50,12 @@ const naist = {
 };
 
 const hsrm = {
-	address: "Hochschule RheinMain, Kurt-Schumacher-Ring 18, 65197 Wiesbaden, Germany",
+	name: "Hochschule RheinMain (HSRM)",
+	address: "Kurt-Schumacher-Ring 18, 65197 Wiesbaden, Germany",
 	labs: [
 		{
 			lab: "LAVIS Lab",
+			labFull: "Laboratory for Visual Computing and Simulation (LAVIS Lab)",
 			members: [
 				{
 					title: "Professor",
@@ -105,12 +110,12 @@ const hsrm = {
 
 	<!-- ── NAIST ─────────────────────────────────────────────────────────── -->
 	<section class="mb-14">
-		<h2 class="title mb-1 text-xl">NAIST, Japan</h2>
+		<h2 class="title mb-1 text-xl">{naist.name}</h2>
 		<p class="text-muted mb-8 text-sm">{naist.address}</p>
 
-		{naist.labs.map(({ lab, members }) => (
+		{naist.labs.map(({ labFull, members }) => (
 			<div class="mb-10">
-				<p class="text-accent mb-5 font-mono text-xs font-semibold uppercase">{lab}</p>
+				<h3 class="text-accent-2 mb-5 text-base font-semibold">{labFull}</h3>
 				<div class="space-y-8">
 					{members.map(({ title, name, photo, bio }) => (
 						<div class="flex gap-5">
@@ -123,11 +128,8 @@ const hsrm = {
 							/>
 							<div>
 								<p class="text-muted mb-0.5 text-xs">{title}</p>
-								<h3 class="text-accent-2 mb-0.5 font-semibold">{name}</h3>
-								<p class="text-accent mb-2 font-mono text-xs uppercase">{lab}, NAIST</p>
-								<p class="text-muted text-sm leading-relaxed">
-									<strong class="text-global-text">{name.split(" ")[0]}</strong> {bio}
-								</p>
+								<h4 class="text-accent-2 mb-2 font-semibold">{name}</h4>
+								<p class="text-muted text-sm leading-relaxed">{`${name} ${bio}`}</p>
 							</div>
 						</div>
 					))}
@@ -138,12 +140,12 @@ const hsrm = {
 
 	<!-- ── HSRM ──────────────────────────────────────────────────────────── -->
 	<section class="mb-14">
-		<h2 class="title mb-1 text-xl">HSRM, Germany</h2>
+		<h2 class="title mb-1 text-xl">{hsrm.name}</h2>
 		<p class="text-muted mb-8 text-sm">{hsrm.address}</p>
 
-		{hsrm.labs.map(({ lab, members }) => (
+		{hsrm.labs.map(({ labFull, members }) => (
 			<div class="mb-10">
-				<p class="text-accent mb-5 font-mono text-xs font-semibold uppercase">{lab}</p>
+				<h3 class="text-accent-2 mb-5 text-base font-semibold">{labFull}</h3>
 				<div class="space-y-8">
 					{members.map(({ title, name, photo, bio }) => (
 						<div class="flex gap-5">
@@ -156,11 +158,8 @@ const hsrm = {
 							/>
 							<div>
 								<p class="text-muted mb-0.5 text-xs">{title}</p>
-								<h3 class="text-accent-2 mb-0.5 font-semibold">{name}</h3>
-								<p class="text-accent mb-2 font-mono text-xs uppercase">{lab}, HSRM</p>
-								<p class="text-muted text-sm leading-relaxed">
-									<strong class="text-global-text">{name.split(" ")[0]}</strong> {bio}
-								</p>
+								<h4 class="text-accent-2 mb-2 font-semibold">{name}</h4>
+								<p class="text-muted text-sm leading-relaxed">{`${name} ${bio}`}</p>
 							</div>
 						</div>
 					))}
