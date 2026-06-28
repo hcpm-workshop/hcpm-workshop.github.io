@@ -6,126 +6,60 @@ import PageLayout from "@/layouts/Base.astro";
 	meta={{
 		title: "Activities",
 		description:
-			"Excursion, social activities, and participation information for the 1st German-Japanese Summer School on HCPM in XR.",
+			"Excursion and social activities for the 1st German-Japanese Summer School on HCPM in XR, 14–18 September 2026.",
 	}}
 >
-	<h1 class="title mb-2 text-2xl">Activities &amp; Excursion</h1>
-	<p class="text-muted mb-12 text-sm">14–18 September 2026 · NAIST, Nara, Japan</p>
+	<!-- ── PAGE BANNER ───────────────────────────────────────────────────── -->
+	<!--
+		Banner image: Kasuga Taisha shrine, Nara (Wikimedia Commons, CC BY-SA).
+		Replace with your own excursion photo: upload to /public/images/activities-banner.jpg
+	-->
+	<section class="-mx-4 sm:-mx-8 -mt-4 relative mb-12 overflow-hidden">
+		<img
+			src="https://commons.wikimedia.org/wiki/Special:FilePath/20100716_Nara_Kasuga-taisha_2196.jpg"
+			alt="Kasuga Taisha shrine, Nara"
+			width="1280"
+			height="220"
+			class="w-full object-cover"
+			style="height: 220px; object-position: center 45%;"
+		/>
+		<div
+			class="absolute inset-0 flex items-end"
+			style="background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.0) 70%);"
+		>
+			<div class="w-full p-5 sm:p-8">
+				<h1 class="text-2xl font-bold text-white">Activities &amp; Excursion</h1>
+				<p class="mt-1 text-sm text-white/70">14–18 September 2026 · NAIST, Nara, Japan</p>
+			</div>
+		</div>
+	</section>
 
 	<!-- ── DAY 4 EXCURSION ───────────────────────────────────────────────── -->
 	<section class="mb-12">
-		<h2 class="title mb-4 text-xl">Day 4 — Full-Day Excursion</h2>
-		<!-- Replace: upload your excursion photo to /public/images/excursion.jpg → src="/images/excursion.jpg" -->
-		<div class="-mx-4 sm:-mx-8 relative mb-5 overflow-hidden">
-			<img
-				src="https://commons.wikimedia.org/wiki/Special:FilePath/20100716_Nara_Kasuga-taisha_2196.jpg"
-				alt="Kasuga Taisha shrine, Nara"
-				width="1200"
-				height="220"
-				class="w-full object-cover"
-				style="height: 220px; object-position: center 45%;"
-			/>
-		</div>
+		<h2 class="title mb-3 text-xl">Day 4 — Full-Day Excursion</h2>
 		<p class="text-muted text-sm leading-relaxed">
-			Thursday, 17 September is set aside for a guided full-day excursion to the Nara / Kyoto area
-			(tentative destination — details will be confirmed closer to the event). Participants will
-			explore the cultural and natural highlights of the Kansai region together with faculty and
-			fellow students.
+			Thursday, 17 September is reserved for a guided full-day excursion — tentatively to Koyasan
+			(高野山), one of Japan's most sacred Buddhist mountain settlements, approximately two hours from
+			Nara. The final destination will be confirmed closer to the event. Participants explore the
+			region together with faculty and fellow students.
 		</p>
 	</section>
 
 	<!-- ── SOCIAL ACTIVITIES ─────────────────────────────────────────────── -->
 	<section class="mb-12">
-		<h2 class="title mb-4 text-xl">Social Activities</h2>
-		<div class="border-muted divide-muted divide-y rounded border">
-			<div class="p-4 text-sm">
-				<h3 class="text-accent-2 mb-1 font-semibold">Welcome Dinner</h3>
-				<p class="text-muted leading-relaxed">
-					An informal dinner with faculty and all participants on Tuesday evening (Day 2). A chance
-					to connect across institutions before the collaborative work begins.
-				</p>
-			</div>
-			<div class="p-4 text-sm">
-				<h3 class="text-accent-2 mb-1 font-semibold">Cross-Cultural Research Teams</h3>
-				<p class="text-muted leading-relaxed">
-					Throughout the week, participants work in interdisciplinary groups mixing students from
-					Japan and Germany. Teams are formed on Day 1 and collaborate on a joint research project
-					that is presented on the final day.
-				</p>
-			</div>
-		</div>
-	</section>
+		<h2 class="title mb-6 text-xl">Social Activities</h2>
 
-	<!-- ── WHO SHOULD APPLY ──────────────────────────────────────────────── -->
-	<section class="mb-12 grid gap-8 sm:grid-cols-2">
-		<div>
-			<h2 class="title mb-4 text-xl">Who Should Apply</h2>
-			<ul class="space-y-1">
-				{
-					[
-						"Master's or early PhD students",
-						"Background in CS, HCI, or XR",
-						"Interest in multidisciplinary research",
-					].map((item) => (
-						<li class="text-muted flex items-start gap-2 text-sm">
-							<span class="text-accent mt-0.5 shrink-0">—</span>
-							<span>{item}</span>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-		<div>
-			<h2 class="title mb-4 text-xl">What You Take Away</h2>
-			<ul class="space-y-1">
-				{
-					[
-						"International research network across NAIST & HSRM",
-						"Remotely co-supervised research project",
-						"Potential path towards future publications",
-						"Opportunity for a research visit in Germany",
-					].map((item) => (
-						<li class="text-muted flex items-start gap-2 text-sm">
-							<span class="text-accent mt-0.5 shrink-0">—</span>
-							<span>{item}</span>
-						</li>
-					))
-				}
-			</ul>
-		</div>
-	</section>
-
-	<!-- ── POSTER DOWNLOAD ───────────────────────────────────────────────── -->
-	<!--
-		To activate this section: export the event poster as a PDF and upload it to
-		/public/hcpm-summer-school-2026-poster.pdf in the repository.
-		Then uncomment the block below.
-
-	<section class="border-muted rounded border p-5 text-sm">
-		<h2 class="text-accent-2 mb-2 font-semibold">Event Poster</h2>
-		<p class="text-muted mb-3 leading-relaxed">
-			Download and share the event poster to spread the word about the summer school.
+		<h3 class="text-accent-2 mb-1 font-semibold">Welcome Dinner</h3>
+		<p class="text-muted mb-6 text-sm leading-relaxed">
+			An informal dinner with faculty and all participants on Tuesday evening (Day 2). A chance to
+			connect across institutions before the collaborative work begins.
 		</p>
-		<a
-			class="cactus-link font-semibold"
-			href="/hcpm-summer-school-2026-poster.pdf"
-			download
-			target="_blank"
-			rel="noreferrer noopener"
-		>
-			↓ Download poster (PDF)
-		</a>
-	</section>
-	-->
 
-	<!-- Poster placeholder until PDF is uploaded -->
-	<section class="border-muted rounded border border-dashed p-5 text-sm">
-		<h2 class="text-accent-2 mb-2 font-semibold">Event Poster</h2>
-		<p class="text-muted leading-relaxed">
-			The event poster will be available for download here soon. To add it: export your poster as
-			<code class="font-mono text-xs">hcpm-summer-school-2026-poster.pdf</code> and upload it to the
-			<code class="font-mono text-xs">/public/</code> folder in the repository, then uncomment the
-			download link in this page's source.
+		<h3 class="text-accent-2 mb-1 font-semibold">Cross-Cultural Research Teams</h3>
+		<p class="text-muted text-sm leading-relaxed">
+			Throughout the week, participants work in interdisciplinary groups mixing students from Japan
+			and Germany. Teams form on Day 1 and collaborate on a joint research project presented on the
+			final day.
 		</p>
 	</section>
 </PageLayout>
