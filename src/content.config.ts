@@ -1,66 +1,59 @@
-import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
-import type { SiteConfig } from "@/types";
+import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
-export const siteConfig: SiteConfig = {
-	url: "https://hcpm-workshop.github.io/",
-	title: "HCPM Summer School 2026",
-	author: "CARE Lab & IMD Lab, NAIST",
-	description:
-		"1st German-Japanese Summer School on Human-Centred Perception Modelling in XR — 14–18 September 2026, NAIST, Nara, Japan.",
-	lang: "en-GB",
-	ogLocale: "en_GB",
-	date: {
-		locale: "en-GB",
-		options: {
-			day: "numeric",
-			month: "short",
-			year: "numeric",
-		},
-	},
-};
+function removeDupsAndLowerCase(array: string[]) {
+	return [...new Set(array.map((str) => str.toLowerCase()))];
+}
 
-// Navigation links — shown in Header & Footer
-export const menuLinks: { path: string; title: string }[] = [
-	{
-		path: "/",
-		title: "Home",
-	},
-	{
-		path: "/programme/",
-		title: "Programme",
-	},
-	{
-		path: "/organisers/",
-		title: "Organisers",
-	},
-	{
-		path: "/posts/",
-		title: "News",
-	},
-];
+const titleSchema = z.string().max(60);
 
-// https://expressive-code.com/reference/configuration/
-export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
-	styleOverrides: {
-		borderRadius: "4px",
-		codeFontFamily:
-			'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-		codeFontSize: "0.875rem",
-		codeLineHeight: "1.7142857rem",
-		codePaddingInline: "1rem",
-		frames: {
-			frameBoxShadowCssValue: "none",
-		},
-		uiLineHeight: "inherit",
-	},
-	themeCssSelector(theme, { styleVariants }) {
-		if (styleVariants.length >= 2) {
-			const baseTheme = styleVariants[0]?.theme;
-			const altTheme = styleVariants.find((v) => v.theme.type !== baseTheme?.type)?.theme;
-			if (theme === baseTheme || theme === altTheme) return `[data-theme='${theme.type}']`;
-		}
-		return `[data-theme="${theme.name}"]`;
-	},
-	themes: ["dracula", "github-light"],
-	useThemedScrollbars: false,
-};
+const baseSchema = z.object({
+	title: titleSchema,
+});
+
+const post = defineCollection({
+	loader: glob({ base: "./src/content/post", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) =>
+		baseSchema.extend({
+			description: z.string(),
+			coverImage: z
+				.object({
+					alt: z.string(),
+					src: image(),
+				})
+				.optional(),
+			draft: z.boolean().default(false),
+			ogImage: z.string().optional(),
+			tags: z.array(z.string()).default([]).transform(removeDupsAndLowerCase),
+			publishDate: z
+				.string()
+				.or(z.date())
+				.transform((val) => new Date(val)),
+			updatedDate: z
+				.string()
+				.optional()
+				.transform((str) => (str ? new Date(str) : undefined)),
+			pinned: z.boolean().default(false),
+		}),
+});
+
+const note = defineCollection({
+	loader: glob({ base: "./src/content/note", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		description: z.string().optional(),
+		publishDate: z.iso
+			.datetime({ offset: true })
+			.transform((val) => new Date(val)),
+	}),
+});
+
+const tag = defineCollection({
+	loader: glob({ base: "./src/content/tag", pattern: "**/*.{md,mdx}" }),
+	schema: z.object({
+		title: titleSchema.optional(),
+		description: z.string().optional(),
+	}),
+});
+
+export const collections = { post, note, tag };
