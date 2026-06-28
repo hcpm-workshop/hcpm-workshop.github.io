@@ -30,6 +30,10 @@ export const menuLinks: { path: string; title: string }[] = [
 		title: "Programme",
 	},
 	{
+		path: "/venue/",
+		title: "Venue",
+	},
+	{
 		path: "/organisers/",
 		title: "Organisers",
 	},
