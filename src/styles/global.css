@@ -58,6 +58,9 @@
 	--color-accent: oklch(55.27% 0.195 19.06);
 	--color-accent-2: oklch(18.15% 0 0);
 	--color-quote: oklch(55.27% 0.195 19.06);
+
+	/* Inter font family — loaded via rsms.me/inter/inter.css in BaseHead */
+	--font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 @layer base {
