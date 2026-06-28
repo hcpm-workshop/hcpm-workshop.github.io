@@ -27,7 +27,7 @@ export const menuLinks: { path: string; title: string }[] = [
 	},
 	{
 		path: "/programme/",
-		title: "Programme",
+		title: "Schedule",
 	},
 	{
 		path: "/venue/",
