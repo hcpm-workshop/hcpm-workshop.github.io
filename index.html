@@ -66,7 +66,7 @@
 
   /* ---- HERO ---- */
   header { padding: 72px 0 56px; }
-  .eyebrow { display: flex; gap: 14px; align-items: center; margin-bottom: 30px; }
+  .eyebrow { display: flex; gap: 14px; align-items: center; margin-bottom: 30px; text-transform: none; }
   .eyebrow .line { height: 1px; width: 40px; background: var(--ink); }
   h1 {
     font-family: var(--display); font-weight: 700;
@@ -78,11 +78,11 @@
   .lede { max-width: 560px; margin: 32px 0 0; font-size: clamp(16px, 2.2vw, 20px); color: #3A342C; }
   .hero-cta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-top: 38px; }
   .ticker {
-    margin-top: 54px; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair);
+    margin-top: 54px;
     display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--hair); border: 1px solid var(--hair);
   }
-  .ticker div { padding: 18px 0; border-left: 1px solid var(--hair); padding-left: 20px; }
-  .ticker div:first-child { border-left: 0; padding-left: 0; }
+  .ticker div { background: var(--paper); padding: 18px 20px; }
   .ticker .k { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .ticker .v { font-family: var(--display); font-weight: 600; font-size: clamp(17px, 2.4vw, 24px); margin-top: 4px; }
   .hero-line { opacity: 0; transform: translateY(28px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
@@ -92,7 +92,6 @@
   @keyframes rise { to { opacity: 1; transform: none; } }
   @media (max-width: 680px) {
     .ticker { grid-template-columns: repeat(2, 1fr); }
-    .ticker div:nth-child(odd) { border-left: 0; padding-left: 0; }
   }
 
   /* ---- SECTION CHROME ---- */
@@ -203,6 +202,13 @@
   .foot-logos a:hover img { opacity: .9; }
   .foot-logos img.square { border-radius: 6px; }
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .impressum {
+    border-top: 1px solid var(--hair); padding-top: 18px; margin-top: 18px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .impressum img { height: 26px; width: auto; opacity: .45; flex-shrink: 0; margin-top: 3px; }
+  .impressum p { font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.75; letter-spacing: .01em; }
+  .impressum a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
 
   /* Section number: larger decorative weight */
   .head .num { font-size: 11px; letter-spacing: .18em; }
@@ -272,7 +278,7 @@
 <!-- ── HERO ──────────────────────────────────────────────────────────────── -->
 <header>
   <div class="wrap">
-    <div class="eyebrow tag"><span class="line"></span>14–18 September 2026 &nbsp;·&nbsp; NAIST, Ikoma, Nara, Japan</div>
+    <div class="eyebrow tag"><span class="line"></span>14–18 September 2026 &nbsp;·&nbsp; Nara Institute of Science and Technology (NAIST), Ikoma, Japan</div>
     <h1>
       <div class="hero-line">Human-</div>
       <div class="hero-line"><span class="accent">Centred</span></div>
@@ -507,7 +513,7 @@
       <div class="org-inst-name">Hochschule RheinMain (HSRM)</div>
 
       <div class="org-lab">
-        <div class="org-lab-name">Laboratory for Visual Computing and Simulation (LAVIS Lab)</div>
+        <div class="org-lab-name">Learning and Visual Systems (LAVIS Lab)</div>
 
         <div class="org-person">
           <img class="org-photo" src="images/organisers/dirk-voelz.png" alt="Dirk Voelz" />
@@ -582,6 +588,20 @@
       <span class="tag">NAIST &amp; HSRM · 2026</span>
       <span class="tag">Built with <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">GitHub Pages</a></span>
     </div>
+    <div class="impressum">
+      <img
+        src="https://www.naist.jp/mt-static/support/theme_static/naist_en_main/images/logo-full.png"
+        alt="NAIST"
+        onerror="this.style.display='none'"
+      />
+      <p>
+        <strong>Nara Institute of Science and Technology (NAIST)</strong><br />
+        8916-5 Takayama-cho, Ikoma, Nara 630-0192, Japan &nbsp;·&nbsp;
+        <a href="https://www.naist.jp/en/" target="_blank" rel="noopener">naist.jp</a><br />
+        CARE Lab &nbsp;·&nbsp; Interactive Media Design Lab &nbsp;·&nbsp;
+        in collaboration with Hochschule RheinMain (HSRM), Germany
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -635,8 +655,8 @@
         if (!isIn && entering && ratio > 0.15) {
           // Entering: fade/rise in. First time uses translateY (no .seen yet).
           el.classList.add('in', 'seen');
-        } else if (isIn && !entering && ratio < 0.55) {
-          // Exiting: start fading while 55% still visible — user sees it leave.
+        } else if (isIn && !entering && ratio < 0.08) {
+          // Exiting: subtle fade — only triggers when almost fully gone.
           el.classList.remove('in');
         }
         prevRatios.set(el, ratio);
