@@ -131,10 +131,10 @@
   /* ---- SCHEDULE ---- */
   .day-label {
     font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-    color: var(--muted); padding: 20px 0 8px; margin-top: 12px; border-top: 1px solid var(--hair);
+    color: var(--muted); padding: 32px 0 8px; margin-top: 0;
   }
-  .day-label:first-child { border-top: 0; margin-top: 0; }
-  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--hair); transition: padding-left .2s; }
+  .day-label:first-child { padding-top: 0; }
+  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 14px 0; transition: padding-left .2s; }
   .row:hover { padding-left: 10px; }
   .row .t { font-family: var(--mono); font-size: 13px; color: var(--blue); font-weight: 700; padding-top: 2px; }
   .row .what { font-family: var(--display); font-size: clamp(15px, 2vw, 19px); font-weight: 500; }
@@ -159,12 +159,11 @@
   }
   .org-person {
     display: flex; gap: 22px; align-items: flex-start;
-    padding: 18px 0; border-bottom: 1px solid var(--hair);
+    padding: 22px 0;
   }
-  .org-person:first-of-type { border-top: 1px solid var(--hair); }
   .org-photo {
     width: 76px; height: 76px; border-radius: 50%;
-    object-fit: cover; flex-shrink: 0; margin-top: 2px;
+    object-fit: cover; object-position: center top; flex-shrink: 0; margin-top: 2px;
     background: var(--hair); /* fallback while loading */
   }
   .org-info { flex: 1; min-width: 0; }
@@ -234,26 +233,25 @@
     animation-timeline: scroll(root);
   }
 
-  /* Primary: CSS view() timeline — scroll-linked, no JS timing issues */
+  /* Primary: CSS view() timeline — duration must be 'auto' for scroll-driven to engage */
   @supports (animation-timeline: view()) {
     .reveal {
-      animation: fade-rise ease-out both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 30%;
-    }
-    /* Grid/block containers: don't animate the wrapper, let children do it */
-    .cards.reveal, .topic-cards.reveal, .org-block.reveal { animation: none; }
-    /* Cards and persons each get their own view-based fade-in */
-    .card, .topic-card, .org-person {
-      animation: fade-rise ease-out both;
+      animation: fade-rise auto linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 40%;
+    }
+    /* Grid/block containers: let children animate individually */
+    .cards.reveal, .topic-cards.reveal, .org-block.reveal { animation: none; }
+    .card, .topic-card, .org-person {
+      animation: fade-rise auto linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
     }
   }
 
   /* Fallback: IntersectionObserver (JS adds .in) for Firefox / older browsers */
   @supports not (animation-timeline: view()) {
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
     .reveal.in { opacity: 1; transform: none; }
   }
 
