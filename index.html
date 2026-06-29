@@ -96,7 +96,7 @@
   }
 
   /* ---- SECTION CHROME ---- */
-  section { padding: 80px 0; border-top: 1px solid var(--hair); }
+  section { padding: 80px 0; }
   .head { display: flex; gap: 16px; align-items: baseline; margin-bottom: 40px; flex-wrap: wrap;
     border-top: 2px solid var(--blue); padding-top: 20px; }
   /* Dark contact section: soften the blue bar */
@@ -134,7 +134,7 @@
     color: var(--muted); padding: 32px 0 8px; margin-top: 0;
   }
   .day-label:first-child { padding-top: 0; }
-  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 14px 0; transition: padding-left .2s; }
+  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--hair); transition: padding-left .2s; }
   .row:hover { padding-left: 10px; }
   .row .t { font-family: var(--mono); font-size: 13px; color: var(--blue); font-weight: 700; padding-top: 2px; }
   .row .what { font-family: var(--display); font-size: clamp(15px, 2vw, 19px); font-weight: 500; }
@@ -233,31 +233,17 @@
     animation-timeline: scroll(root);
   }
 
-  /* Primary: CSS view() timeline — duration must be 'auto' for scroll-driven to engage */
-  @supports (animation-timeline: view()) {
-    .reveal {
-      animation: fade-rise auto linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 40%;
-    }
-    /* Grid/block containers: let children animate individually */
-    .cards.reveal, .topic-cards.reveal, .org-block.reveal { animation: none; }
-    .card, .topic-card, .org-person {
-      animation: fade-rise auto linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 45%;
-    }
+  /* Scroll reveal — IntersectionObserver adds .in when element enters viewport */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .75s ease, transform .75s ease;
   }
-
-  /* Fallback: IntersectionObserver (JS adds .in) for Firefox / older browsers */
-  @supports not (animation-timeline: view()) {
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-  }
+  .reveal.in { opacity: 1; transform: none; }
 
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
-    .reveal, .card, .topic-card, .org-person { opacity: 1 !important; transform: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
     .hero-line { opacity: 1; transform: none; }
     #scroll-bar { display: none; }
     html { scroll-behavior: auto; }
@@ -473,7 +459,7 @@
         <div class="org-lab-name">Computational Augmented Reality Engineering Lab (CARE Lab)</div>
 
         <div class="org-person">
-          <img class="org-photo" src="images/organisers/alexander-marquardt.png" alt="Alexander Marquardt" />
+          <img class="org-photo" src="images/organisers/alexander-marquardt.png" alt="Alexander Marquardt" style="object-position: center 22%;" />
           <div class="org-info">
             <div class="org-role">Dr.-Eng. &nbsp;·&nbsp; JSPS Postdoctoral Fellow</div>
             <div class="org-name">Alexander Marquardt</div>
@@ -531,7 +517,7 @@
         </div>
 
         <div class="org-person">
-          <img class="org-photo" src="images/organisers/martin-weier.jpg" alt="Martin Weier" />
+          <img class="org-photo" src="images/organisers/martin-weier.jpg" alt="Martin Weier" style="object-position: center center;" />
           <div class="org-info">
             <div class="org-role">Professor</div>
             <div class="org-name">Martin Weier</div>
@@ -620,17 +606,25 @@
     tick(); setInterval(tick, 30000);
   })();
 
-  /* ---- Scroll reveal fallback (Firefox / browsers without animation-timeline: view()) ---- */
-  if(!CSS.supports('animation-timeline', 'view()')) {
-    (function(){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
-        });
-      }, { threshold: .08 });
-      document.querySelectorAll('.reveal').forEach(function(n){ io.observe(n); });
-    })();
-  }
+  /* ---- Scroll reveal ---- */
+  (function(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+
+    var vh = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(function(n){
+      // Elements already in the viewport on load: show immediately, no animation
+      if(n.getBoundingClientRect().top < vh) {
+        n.classList.add('in');
+      } else {
+        // Below the fold: observe and animate when scrolled to
+        io.observe(n);
+      }
+    });
+  })();
 </script>
 </body>
 </html>
