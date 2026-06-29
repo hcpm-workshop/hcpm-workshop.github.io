@@ -608,28 +608,51 @@
     tick(); setInterval(tick, 30000);
   })();
 
-  /* ---- Scroll reveal — bidirectional, repeatable ---- */
+  /* ---- Scroll reveal — direction-aware, asymmetric thresholds ---- *
+   *  Fade IN  at 15% visible  (elements appear early, as they enter)
+   *  Fade OUT at 55% visible  (content fades while clearly still on screen)
+   *  Uses scroll events + rAF so entry/exit thresholds can differ.
+   * ----------------------------------------------------------------- */
   (function(){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting) {
-          // First appearance: rise up (translateY → 0) via .in; mark .seen so future
-          // exits/re-entries are a clean opacity fade with no transform bounce.
-          e.target.classList.add('in', 'seen');
-        } else {
-          // Element left viewport: fade out. Keep .seen so re-entry is fade-only.
-          e.target.classList.remove('in');
-        }
-      });
-    }, { threshold: 0.3 }); // 30% still visible when fade-out fires → user sees it
+    var reveals    = Array.from(document.querySelectorAll('.reveal'));
+    var prevRatios = new Map();
+    var ticking    = false;
 
-    document.querySelectorAll('.reveal').forEach(function(n){
-      // Pre-show elements already in the viewport on load (no flash)
-      if(n.getBoundingClientRect().top < window.innerHeight) {
-        n.classList.add('in', 'seen');
-      }
-      io.observe(n);
-    });
+    function visRatio(el) {
+      var r   = el.getBoundingClientRect();
+      var vh  = window.innerHeight;
+      var vis = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+      return el.offsetHeight > 0 ? vis / el.offsetHeight : 0;
+    }
+
+    function update() {
+      reveals.forEach(function(el) {
+        var ratio    = visRatio(el);
+        var prev     = prevRatios.has(el) ? prevRatios.get(el) : -1;
+        var isIn     = el.classList.contains('in');
+        var entering = ratio >= prev; // ratio rising → element coming into view
+
+        if (!isIn && entering && ratio > 0.15) {
+          // Entering: fade/rise in. First time uses translateY (no .seen yet).
+          el.classList.add('in', 'seen');
+        } else if (isIn && !entering && ratio < 0.55) {
+          // Exiting: start fading while 55% still visible — user sees it leave.
+          el.classList.remove('in');
+        }
+        prevRatios.set(el, ratio);
+      });
+      ticking = false;
+    }
+
+    update(); // initial pass — show anything already in viewport
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    window.addEventListener('resize', function() {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
   })();
 </script>
 </body>
