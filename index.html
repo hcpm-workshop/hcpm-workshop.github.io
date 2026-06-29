@@ -202,6 +202,551 @@
   .foot-logos img.square { border-radius: 6px; }
   .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
 
+  /* Section number: larger decorative weight */
+  .head .num { font-size: 11px; letter-spacing: .18em; }
+
+  /* ---- SOCIAL HIGHLIGHTS ---- */
+  .social-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--hair); border: 1px solid var(--hair); margin-top: 40px; }
+  .social-card { background: var(--paper); overflow: hidden; }
+  .social-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .social-card-body { padding: 22px 22px 26px; }
+  .social-card-body .sc-tag { font-family: var(--mono); font-size: 11px; color: var(--blue); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+  .social-card-body h3 { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -.01em; margin-bottom: 8px; }
+  .social-card-body p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  @media (max-width: 640px) { .social-highlights { grid-template-columns: 1fr; } }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- SCROLL PROGRESS BAR ---- */
+  @keyframes grow-bar { to { transform: scaleX(1); } }
+  #scroll-bar {
+    position: fixed; top: 0; left: 0; width: 100%; height: 2px;
+    background: var(--blue); transform-origin: 0 50%; transform: scaleX(0);
+    z-index: 200;
+    animation: grow-bar linear both;
+    animation-timeline: scroll(root);
+  }
+
+  /* ---- STAGGER REVEALS ---- */
+  /* Grid/list containers don't fade themselves — their children stagger in */
+  .cards.reveal, .topic-cards.reveal, .org-block.reveal {
+    opacity: 1 !important; transform: none !important; transition: none !important;
+  }
+  .stagger-item {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .52s ease var(--delay, 0ms), transform .52s ease var(--delay, 0ms);
+  }
+  .cards.in .stagger-item,
+  .topic-cards.in .stagger-item,
+  .org-block.in .stagger-item { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .stagger-item { opacity: 1; transform: none; }
+    .hero-line { opacity: 1; transform: none; }
+    #scroll-bar { display: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div id="scroll-bar" aria-hidden="true"></div>
+
+<!-- ── NAV ───────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#" aria-label="Home">HCPM<span class="dot">·</span>XR 2026</a>
+    <div class="nav-links">
+      <a href="#about"      class="hide-sm">Overview</a>
+      <a href="#lectures"   class="hide-sm">Lectures</a>
+      <a href="#schedule"   class="hide-sm">Schedule</a>
+      <a href="#organisers" class="hide-sm">Organisers</a>
+      <a class="btn" href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<header>
+  <div class="wrap">
+    <div class="eyebrow tag"><span class="line"></span>14–18 September 2026 &nbsp;·&nbsp; NAIST, Ikoma, Nara, Japan</div>
+    <h1>
+      <div class="hero-line">Human-</div>
+      <div class="hero-line"><span class="accent">Centred</span></div>
+      <div class="hero-line"><span class="out">Perception.</span></div>
+    </h1>
+    <p class="lede">A five-day German–Japanese summer school on Human-Centred Perception Modelling in Extended Reality — bringing together Master's and PhD students to learn, collaborate, and publish.</p>
+    <div class="hero-cta">
+      <a class="btn lg" href="#contact">Get in touch</a>
+      <span class="tag" id="countdown">loading…</span>
+    </div>
+    <div class="ticker">
+      <div><div class="k">Dates</div><div class="v">14–18 Sep 2026</div></div>
+      <div><div class="k">Location</div><div class="v">Ikoma, Nara</div></div>
+      <div><div class="k">Duration</div><div class="v">5 days</div></div>
+      <div><div class="k">Cost</div><div class="v">Free of charge</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ── 01 OVERVIEW ───────────────────────────────────────────────────────── -->
+<section id="about">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">01</span><h2>Overview</h2></div>
+    <div class="overview-text reveal">
+      <p>A collaborative research workshop jointly organised by CARE Lab and IMD Lab at the Nara Institute of Science and Technology (NAIST), Japan, and the LAVIS Lab at Hochschule RheinMain (HSRM), Germany. Participation is free of charge.</p>
+      <p>Students work in cross-cultural teams — mixing German and Japanese participants — on a joint research project over five days. Expert lectures lay the theoretical foundations; hands-on sessions drive the design, prototyping, and testing of a real XR study.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 OUTLINE ────────────────────────────────────────────────────────── -->
+<section id="outline">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">02</span><h2>Outline</h2></div>
+    <div class="cards reveal">
+      <div class="card">
+        <div class="ci">01</div>
+        <h3>Expert Input</h3>
+        <p>Researchers from Germany and Japan introduce key topics in XR, perception, AI, and robotics through a series of lectures.</p>
+      </div>
+      <div class="card">
+        <div class="ci">02</div>
+        <h3>Research Ideation</h3>
+        <p>In cross-cultural teams: identify a research question, review the literature, and scope a study or experiment.</p>
+      </div>
+      <div class="card">
+        <div class="ci">03</div>
+        <h3>Prototype and Test</h3>
+        <p>Build and refine an XR experiment or prototype across two days, with peer and faculty feedback throughout.</p>
+      </div>
+      <div class="card">
+        <div class="ci">04</div>
+        <h3>Share and Go Further</h3>
+        <p>Present team results on the final day. Promising projects may continue towards joint publications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 LECTURE TOPICS ──────────────────────────────────────────────────── -->
+<section id="lectures">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">03</span><h2>Lecture Topics</h2></div>
+    <div class="topic-cards reveal">
+      <div class="topic-card">
+        <div class="ti">L1</div>
+        <h3>Modelling Visual Attention</h3>
+        <p>Computational models of where and how humans direct visual attention in real and virtual scenes.</p>
+      </div>
+      <div class="topic-card">
+        <div class="ti">L2</div>
+        <h3>Multisensory Perception and Sensory Integration</h3>
+        <p>How the brain combines information from vision, hearing, touch, and proprioception into a unified percept.</p>
+      </div>
+      <div class="topic-card">
+        <div class="ti">L3</div>
+        <h3>Vision Augmentation in Extended Reality</h3>
+        <p>Techniques for enhancing and modifying visual perception through AR and VR display systems.</p>
+      </div>
+      <div class="topic-card">
+        <div class="ti">L4</div>
+        <h3>Human-Machine Interaction</h3>
+        <p>Principles and methods for designing effective interfaces between humans and intelligent machines.</p>
+      </div>
+      <div class="topic-card">
+        <div class="ti">L5</div>
+        <h3>Comfort Intelligence for Human-Robot Interaction</h3>
+        <p>Modelling and predicting human comfort to guide the behaviour of robots in shared spaces.</p>
+      </div>
+      <div class="topic-card">
+        <div class="ti">L6</div>
+        <h3>Designing User Studies for XR Research</h3>
+        <p>Experimental design, ethics, measurement, and statistical analysis in the context of extended reality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 SCHEDULE ────────────────────────────────────────────────────────── -->
+<section id="schedule">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">04</span><h2>Schedule</h2></div>
+    <p class="tag reveal" style="margin-bottom:28px">All times tentative and subject to change.</p>
+    <div class="reveal">
+      <div class="day-label">Day 1 — Monday, 14 September 2026 &nbsp;·&nbsp; Expert Input</div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Welcome and Introduction</div><div class="detail">Opening remarks and programme overview.</div></div></div>
+      <div class="row"><span class="t">9:45</span><div><div class="what">Modelling Visual Attention</div></div></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Multisensory Perception and Sensory Integration</div></div></div>
+      <div class="row"><span class="t">11:30</span><div><div class="what">Vision Augmentation in Extended Reality</div></div></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Human-Machine Interaction</div></div></div>
+      <div class="row"><span class="t">14:15</span><div><div class="what">Comfort Intelligence for Human-Robot Interaction</div></div></div>
+      <div class="row"><span class="t">15:15</span><div><div class="what">Design Thinking Workshop</div></div></div>
+      <div class="row"><span class="t">Evening</span><div><div class="what">Group Finding</div></div></div>
+
+      <div class="day-label">Day 2 — Tuesday, 15 September 2026 &nbsp;·&nbsp; Research Ideation</div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Research Ideation Workshop</div><div class="detail">Forming cross-cultural research teams.</div></div></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Literature Review</div><div class="detail">Guided team literature review session.</div></div></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Concepts and Design</div><div class="detail">Team-based conceptual design and planning.</div></div></div>
+      <div class="row"><span class="t">16:00</span><div><div class="what">Group Presentation and Q&amp;A</div></div></div>
+      <div class="row"><span class="t">Evening</span><div><div class="what">Welcome Dinner</div><div class="detail">Informal dinner with faculty and all participants.</div></div></div>
+
+      <div class="day-label">Day 3 — Wednesday, 16 September 2026 &nbsp;·&nbsp; Prototype and Test</div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Designing User Studies for XR Research</div></div></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Research Question and Study Design</div><div class="detail">Define your research question and plan the study approach.</div></div></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Prototype and Refinement</div><div class="detail">Iterative prototyping with peer and faculty feedback.</div></div></div>
+
+      <div class="day-label">Day 4 — Thursday, 17 September 2026</div>
+      <div class="row-excursion">
+        <div class="t">Full Day</div>
+        <div class="what">Guided Excursion</div>
+        <div class="detail">Guided full-day hiking excursion in the Nara/Kyoto area (TBD). Final destination confirmed closer to the event.</div>
+      </div>
+
+      <div class="day-label">Day 5 — Friday, 18 September 2026 &nbsp;·&nbsp; Share and Go Further</div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Final Presentations</div><div class="detail">Each group presents results and research outcomes.</div></div></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Closing Session</div><div class="detail">Reflections, next steps, and farewell.</div></div></div>
+    </div>
+
+    <!-- Social highlights -->
+    <div class="social-highlights reveal" style="margin-top:52px">
+      <div class="social-card">
+        <!--
+          Replace with your own photo: upload to the repo root and set src="your-excursion-photo.jpg"
+          Current image: Kasuga Primeval Forest, Nara (UNESCO World Heritage)
+        -->
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/20100716_Nara_Kasuga-taisha_2196.jpg"
+          alt="Forest path in Nara, Japan"
+        />
+        <div class="social-card-body">
+          <div class="sc-tag">Day 4 &nbsp;·&nbsp; Thursday, 17 September</div>
+          <h3>Guided Excursion</h3>
+          <p>A full day out in the Nara/Kyoto area — hiking through forest trails, visiting shrines and temples, and experiencing the cultural landscape of the Kansai region. The exact destination will be announced closer to the event.</p>
+        </div>
+      </div>
+      <div class="social-card">
+        <!--
+          Replace with your own photo: upload to repo root and set src="your-dinner-photo.jpg"
+          Current image: placeholder — replace with an izakaya or restaurant photo
+        -->
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Izakaya-Hakata-Tenjin-Fukuoka.jpg"
+          alt="Izakaya in Japan"
+          onerror="this.style.height='220px';this.style.background='#DDDAD3';this.removeAttribute('src')"
+        />
+        <div class="social-card-body">
+          <div class="sc-tag">Day 2 &nbsp;·&nbsp; Tuesday Evening</div>
+          <h3>Welcome Dinner</h3>
+          <p>An informal dinner on Tuesday evening bringing together all participants and faculty. A chance to share a meal, meet your research team, and experience Japanese dining culture — likely at a local izakaya in Nara or Ikoma.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 ORGANISERS ──────────────────────────────────────────────────────── -->
+<section id="organisers">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">05</span><h2>Organisers</h2></div>
+
+    <!-- NAIST -->
+    <div class="org-block reveal">
+      <div class="org-inst-name">Nara Institute of Science and Technology (NAIST)</div>
+
+      <div class="org-lab">
+        <div class="org-lab-name">Computational Augmented Reality Engineering Lab (CARE Lab)</div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/alexander-marquardt.png" alt="Alexander Marquardt" />
+          <div class="org-info">
+            <div class="org-role">Dr.-Eng. &nbsp;·&nbsp; JSPS Postdoctoral Fellow</div>
+            <div class="org-name">Alexander Marquardt</div>
+            <p class="org-bio">Alexander Marquardt is a JSPS Postdoctoral Fellow at NAIST, Japan. He received his MSc from Bonn-Rhein-Sieg University of Applied Sciences and his PhD in Computer Science from the University of Bremen, Germany. His research focuses on developing multisensory user interfaces that enhance interaction and perception in XR environments, aiming to improve user experience and system effectiveness. He also explores the integration of AI and language models into immersive experiences.</p>
+          </div>
+        </div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/monica-perusquia.jpg" alt="Monica Perusquia" />
+          <div class="org-info">
+            <div class="org-role">Assistant Professor</div>
+            <div class="org-name">Monica Perusquia</div>
+            <p class="org-bio">Monica Perusquia is an Assistant Professor at CARE Lab, NAIST. Her research focuses on augmented and extended reality interfaces, human perception in immersive environments, and the design of interaction techniques that bridge the physical and digital worlds. [Bio to be updated.]</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="org-lab">
+        <div class="org-lab-name">Interactive Media Design Lab (IMD Lab)</div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/taishi-sawabe.jpg" alt="Taishi Sawabe" />
+          <div class="org-info">
+            <div class="org-role">Associate Professor</div>
+            <div class="org-name">Taishi Sawabe</div>
+            <p class="org-bio">Taishi Sawabe is an Associate Professor at IMD Lab, NAIST. His research explores the design of interactive media systems with a focus on human-computer interaction, haptic feedback, and user experience in virtual and augmented environments. [Bio to be updated.]</p>
+          </div>
+        </div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/isidro-butaslac.png" alt="Isidro Butaslac" />
+          <div class="org-info">
+            <div class="org-role">Assistant Professor</div>
+            <div class="org-name">Isidro Butaslac</div>
+            <p class="org-bio">Isidro Butaslac is an Assistant Professor at IMD Lab, NAIST. His research interests include human-robot interaction, social robotics, and the design of intelligent interactive systems for collaborative and immersive settings. [Bio to be updated.]</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /NAIST -->
+
+    <!-- HSRM -->
+    <div class="org-block reveal">
+      <div class="org-inst-name">Hochschule RheinMain (HSRM)</div>
+
+      <div class="org-lab">
+        <div class="org-lab-name">Laboratory for Visual Computing and Simulation (LAVIS Lab)</div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/dirk-voelz.png" alt="Dirk Voelz" />
+          <div class="org-info">
+            <div class="org-role">Professor</div>
+            <div class="org-name">Dirk Voelz</div>
+            <p class="org-bio">Dirk Voelz is a Professor in the Faculty of Design, Computer Science, Media at Hochschule RheinMain, Germany. His research interests include real-time rendering, visual perception, and image quality assessment for immersive display systems. He leads the LAVIS Lab and supervises projects at the intersection of computer graphics and perceptual science. [Bio to be updated.]</p>
+          </div>
+        </div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/martin-weier.jpg" alt="Martin Weier" />
+          <div class="org-info">
+            <div class="org-role">Professor</div>
+            <div class="org-name">Martin Weier</div>
+            <p class="org-bio">Martin Weier is a full professor for visual computing at Hochschule RheinMain in Wiesbaden, Germany. He received his MSc from Bonn-Rhein-Sieg University and his PhD from Saarland University. His research focuses on perception-driven rendering and gaze-contingent ray tracing systems for head-mounted displays, alongside work in visual analytics, high-quality rendering, and compiler technologies.</p>
+          </div>
+        </div>
+
+        <div class="org-person">
+          <img class="org-photo" src="images/organisers/biying-fu.png" alt="Biying Fu" />
+          <div class="org-info">
+            <div class="org-role">Professor</div>
+            <div class="org-name">Biying Fu</div>
+            <p class="org-bio">Biying Fu is a full professor at Hochschule RheinMain, focusing on explainable AI and human-computer interaction. Previously a senior research scientist at the Fraunhofer Institute for Computer Graphics Research, she completed her PhD in 2020 on Sensor Applications for Human Activity Recognition in Smart Environments. Her research spans data processing, biometrics, machine learning, and artificial intelligence.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /HSRM -->
+
+  </div>
+</section>
+
+<!-- ── 06 VENUE / CONTACT (dark) ─────────────────────────────────────────── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="head reveal"><span class="num">06</span><h2>Venue and Contact</h2></div>
+    <div class="detail-grid reveal">
+      <div>
+        <div class="k">When</div>
+        <div class="v">14–18 Sep 2026<small>09:00–17:00 JST</small></div>
+      </div>
+      <div>
+        <div class="k">Where</div>
+        <div class="v">NAIST, Ikoma<small>Nara Prefecture, Japan</small></div>
+      </div>
+      <div>
+        <div class="k">Cost</div>
+        <div class="v">Free of charge<small>for selected participants</small></div>
+      </div>
+    </div>
+    <p class="tag reveal" style="margin-bottom:22px">Participation is open to Master's and PhD students in relevant fields. Enquiries welcome.</p>
+    <a class="btn lg reveal" href="mailto:marquardt@ieee.org?subject=HCPM%20Summer%20School%202026" id="contact-btn">Email to enquire →</a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-logos">
+      <a href="https://carelab.info/" target="_blank" rel="noopener" aria-label="CARE Lab">
+        <img src="https://carelab.info/wp-content/uploads/2017/03/cropped-cropped-CARElogo_Y03_bold.png" alt="CARE Lab" />
+      </a>
+      <a href="https://imdl.naist.jp/" target="_blank" rel="noopener" aria-label="Interactive Media Design Lab">
+        <img src="https://imdl.naist.jp/wp-content/uploads/2020/04/logo_without_nickname.png" alt="IMD Lab" />
+      </a>
+      <a href="https://lavis.cs.hs-rm.de" target="_blank" rel="noopener" aria-label="LAVIS Lab">
+        <img class="square" src="https://avatars.githubusercontent.com/u/77007656?s=280&v=4" alt="LAVIS Lab" />
+      </a>
+    </div>
+    <div class="foot-bottom">
+      <span class="tag">NAIST &amp; HSRM · 2026</span>
+      <span class="tag">Built with <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">GitHub Pages</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- Contact link ---- */
+  (function(){
+    var url = window.CONTACT_URL;
+    if(url) document.getElementById("contact-btn").setAttribute("href", url);
+  })();
+
+  /* ---- Countdown ---- */
+  (function(){
+    var el = document.getElementById("countdown");
+    var target = new Date(window.EVENT_DATE).getTime();
+    if(isNaN(target)){ el.textContent = ""; return; }
+    function tick(){
+      var d = target - Date.now();
+      if(d <= 0){ el.textContent = "Happening now →"; return; }
+      var days = Math.floor(d / 86400000);
+      var hrs  = Math.floor(d % 86400000 / 3600000);
+      var mins = Math.floor(d % 3600000 / 60000);
+      el.textContent = "Starts in " + days + "d " + hrs + "h " + mins + "m";
+    }
+    tick(); setInterval(tick, 30000);
+  })();
+
+  /* ---- Scroll reveal + stagger ---- */
+  (function(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el = e.target;
+        io.unobserve(el);
+
+        // Determine whether to stagger children
+        var childSel = null;
+        if(el.classList.contains('cards'))       childSel = '.card';
+        else if(el.classList.contains('topic-cards')) childSel = '.topic-card';
+        else if(el.classList.contains('org-block'))   childSel = '.org-person';
+
+        if(childSel){
+          // Mark children with stagger class + CSS delay var
+          el.querySelectorAll(childSel).forEach(function(c, i){
+            c.classList.add('stagger-item');
+            c.style.setProperty('--delay', (i * 85) + 'ms');
+          });
+          // One rAF delay so browser paints initial hidden state before transitioning
+          requestAnimationFrame(function(){
+            requestAnimationFrame(function(){ el.classList.add('in'); });
+          });
+        } else {
+          el.classList.add('in');
+        }
+      });
+    }, { threshold: .06 });
+    document.querySelectorAll(".reveal").forEach(function(n){ io.observe(n); });
+  })();
+</script>
+</body>
+</html>
+  .head { display: flex; gap: 16px; align-items: baseline; margin-bottom: 40px; flex-wrap: wrap; }
+  .head .num { font-family: var(--mono); color: var(--blue); font-weight: 700; font-size: 13px; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: clamp(26px, 4.5vw, 44px); letter-spacing: -.02em; line-height: 1.04; }
+
+  /* ---- OVERVIEW (single column) ---- */
+  .overview-text p { font-size: 17px; color: #3A342C; max-width: 720px; }
+  .overview-text p + p { margin-top: 16px; }
+
+  /* ---- OUTLINE CARDS ---- */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+  .card { background: var(--paper); padding: 28px 22px 32px; transition: background .2s; }
+  .card:hover { background: #fff; }
+  .card .ci { font-family: var(--mono); font-size: 13px; color: var(--blue); font-weight: 700; }
+  .card h3 { font-family: var(--display); font-weight: 600; font-size: 18px; margin: 12px 0 8px; letter-spacing: -.01em; }
+  .card p { color: var(--muted); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 900px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+
+  /* ---- LECTURE TOPIC CARDS ---- */
+  .topic-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+  .topic-card { background: var(--paper); padding: 22px 20px 26px; transition: background .2s; }
+  .topic-card:hover { background: #fff; }
+  .topic-card .ti { font-family: var(--mono); font-size: 11px; color: var(--blue); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .topic-card h3 { font-family: var(--display); font-weight: 600; font-size: 16px; margin: 10px 0 6px; letter-spacing: -.01em; }
+  .topic-card p { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  @media (max-width: 760px) { .topic-cards { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .topic-cards { grid-template-columns: 1fr; } }
+
+  /* ---- SCHEDULE ---- */
+  .day-label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--muted); padding: 20px 0 8px; margin-top: 12px; border-top: 1px solid var(--hair);
+  }
+  .day-label:first-child { border-top: 0; margin-top: 0; }
+  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--hair); transition: padding-left .2s; }
+  .row:hover { padding-left: 10px; }
+  .row .t { font-family: var(--mono); font-size: 13px; color: var(--blue); font-weight: 700; padding-top: 2px; }
+  .row .what { font-family: var(--display); font-size: clamp(15px, 2vw, 19px); font-weight: 500; }
+  .row .detail { font-size: 13px; color: var(--muted); margin-top: 2px; }
+  .row-excursion { background: var(--ink); color: var(--paper); padding: 22px; margin: 0; border: 0; display: block; }
+  .row-excursion .t { color: #7BA3FF; font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .06em; }
+  .row-excursion .what { font-family: var(--display); font-size: 18px; font-weight: 600; margin: 6px 0 4px; }
+  .row-excursion .detail { font-size: 13px; color: #9A948A; }
+
+  /* ---- ORGANISERS ---- */
+  .org-block { margin-bottom: 52px; }
+  .org-block:last-child { margin-bottom: 0; }
+  .org-inst-name {
+    font-family: var(--display); font-weight: 600; font-size: 20px;
+    letter-spacing: -.01em; padding-bottom: 6px;
+    border-bottom: 2px solid var(--ink); margin-bottom: 28px;
+  }
+  .org-lab { margin-bottom: 32px; }
+  .org-lab-name {
+    font-family: var(--mono); font-size: 11px; color: var(--blue);
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px;
+  }
+  .org-person {
+    display: flex; gap: 22px; align-items: flex-start;
+    padding: 18px 0; border-bottom: 1px solid var(--hair);
+  }
+  .org-person:first-of-type { border-top: 1px solid var(--hair); }
+  .org-photo {
+    width: 76px; height: 76px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0; margin-top: 2px;
+    background: var(--hair); /* fallback while loading */
+  }
+  .org-info { flex: 1; min-width: 0; }
+  .org-role { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; }
+  .org-name { font-family: var(--display); font-weight: 600; font-size: 17px; letter-spacing: -.01em; margin-bottom: 8px; }
+  .org-bio { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  @media (max-width: 520px) {
+    .org-person { flex-direction: column; gap: 12px; }
+    .org-photo { width: 64px; height: 64px; }
+  }
+
+  /* ---- VENUE / CONTACT (dark) ---- */
+  #contact { background: var(--ink); color: var(--paper); border: 0; }
+  #contact .head h2 { color: var(--paper); }
+  #contact .tag { color: #9A948A; }
+  #contact .num { color: #7BA3FF; }
+  .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin: 14px 0 42px; }
+  .detail-grid .k { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #9A948A; }
+  .detail-grid .v { font-family: var(--display); font-size: clamp(18px, 2.6vw, 26px); font-weight: 600; margin-top: 6px; color: var(--paper); }
+  .detail-grid .v small { color: #7BA3FF; font-size: 65%; display: block; margin-top: 2px; }
+  #contact .btn { background: var(--blue); border-color: var(--blue); color: var(--paper); }
+  #contact .btn:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+  @media (max-width: 680px) { .detail-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+  /* ---- FOOTER ---- */
+  footer { padding: 32px 0; border-top: 1px solid var(--hair); }
+  .foot-logos {
+    display: flex; align-items: center; justify-content: center;
+    gap: 40px; flex-wrap: wrap; padding-bottom: 24px;
+    margin-bottom: 20px; border-bottom: 1px solid var(--hair);
+  }
+  .foot-logos a, .foot-logos span { display: flex; align-items: center; }
+  .foot-logos img {
+    height: 44px; width: auto; max-width: 120px;
+    object-fit: contain; opacity: .55; transition: opacity .2s;
+  }
+  .foot-logos a:hover img { opacity: .9; }
+  .foot-logos img.square { border-radius: 6px; }
+  .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+
   /* ---- SCROLL REVEAL ---- */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity .65s ease, transform .65s ease; }
   .reveal.in { opacity: 1; transform: none; }
