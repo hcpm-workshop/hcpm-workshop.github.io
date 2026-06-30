@@ -13,7 +13,7 @@
 <!-- ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
   /* ---- DESIGN TOKENS ---- */
   :root {
@@ -52,8 +52,8 @@
   .brand { font-family: var(--mono); font-weight: 700; letter-spacing: .05em; font-size: 14px; text-decoration: none; }
   .brand .dot { color: var(--blue); }
   .nav-links { display: flex; gap: 26px; align-items: center; }
-  .nav-links a { font-family: var(--body); font-size: 14px; font-weight: 500; text-decoration: none; color: var(--muted); transition: color .2s; }
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:not(.btn) { font-family: var(--body); font-size: 14px; font-weight: 500; text-decoration: none; color: var(--muted); transition: color .2s; }
+  .nav-links a:not(.btn):hover { color: var(--ink); }
   .btn {
     display: inline-block; background: var(--ink); color: var(--paper);
     font-family: var(--body); font-size: 14px; font-weight: 600;
@@ -194,10 +194,10 @@
   /* ---- VENUE / CONTACT (dark) ---- */
   #contact { background: var(--ink); color: var(--paper); border: 0; }
   #contact .head h2 { color: var(--paper); }
-  #contact .tag { color: #B0AAA2; }
+  #contact .tag { color: #B0AAA2; font-family: var(--body); font-weight: 500; font-size: 13px; letter-spacing: .02em; text-transform: none; }
   #contact .num { color: #7BA3FF; }
   .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin: 14px 0 42px; }
-  .detail-grid .k { font-family: var(--mono); font-size: 12px; letter-spacing: .09em; text-transform: uppercase; color: #B0AAA2; }
+  .detail-grid .k { font-family: var(--body); font-weight: 600; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: #B0AAA2; }
   .detail-grid .v { font-family: var(--display); font-size: clamp(18px, 2.6vw, 26px); font-weight: 600; margin-top: 6px; color: var(--paper); }
   .detail-grid .v small { color: #7BA3FF; font-size: 65%; display: block; margin-top: 2px; }
   #contact .btn { background: var(--blue); border-color: var(--blue); color: var(--paper); }
@@ -320,8 +320,9 @@
   <div class="wrap">
     <div class="head reveal"><h2>Overview</h2></div>
     <div class="overview-text reveal">
-      <p>A collaborative research workshop jointly organised by CARE Lab and IMD Lab at the Nara Institute of Science and Technology (NAIST), Japan, and the LAVIS Lab at Hochschule RheinMain (HSRM), Germany. Participation is free of charge.</p>
-      <p>Students work in cross-cultural teams — mixing German and Japanese participants — on a joint research project over five days. Expert lectures lay the theoretical foundations; hands-on sessions drive the design, prototyping, and testing of a real XR study.</p>
+      <p>The 1st German-Japanese Summer School on Human-Centred Perception Modelling in XR is a five-day research programme open to Master's and PhD students, jointly organised by CARE Lab and IMD Lab at NAIST (Japan) and the LAVIS Lab at Hochschule RheinMain (Germany). Participation is free of charge.</p>
+      <p>The workshop explores how human perception — visual attention, multisensory integration, and spatial cognition — shapes the design of extended reality systems. Invited researchers from both countries introduce key methods and findings across six lecture areas spanning XR interfaces, human-machine interaction, AI, and experimental design.</p>
+      <p>Participants form cross-cultural teams and move through a full research cycle: from ideation and literature review, to designing and prototyping a real XR study, to presenting results on the final day. Promising projects are encouraged to continue toward joint publications.</p>
     </div>
   </div>
 </section>
@@ -441,7 +442,7 @@
       <div class="row"><span class="t">13:30</span><div><div class="what">Closing Session</div><div class="detail">Reflections, next steps, and farewell.</div></div></div>
     </div>
 
-<!-- Social highlights -->
+    <!-- Social highlights -->
     <div class="social-highlights reveal" style="margin-top:52px">
       <div class="social-card">
         <!--
@@ -475,6 +476,7 @@
         </div>
       </div>
     </div>
+  </div>
 </section>
 
 <!-- ── 05 ORGANISERS ──────────────────────────────────────────────────────── -->
@@ -499,11 +501,11 @@
         </div>
 
         <div class="org-person">
-          <img class="org-photo" src="images/organisers/monica-perusquia.jpg" alt="Monica Perusquia" />
+          <img class="org-photo" src="images/organisers/monica-perusquia.jpg" alt="Monica Perusquía-Hernández" />
           <div class="org-info">
             <div class="org-role">Assistant Professor</div>
-            <div class="org-name">Monica Perusquia</div>
-            <p class="org-bio">Monica Perusquia is an Assistant Professor at CARE Lab, NAIST. Her research focuses on augmented and extended reality interfaces, human perception in immersive environments, and the design of interaction techniques that bridge the physical and digital worlds. [Bio to be updated.]</p>
+            <div class="org-name">Monica Perusquía-Hernández</div>
+            <p class="org-bio">Monica Perusquía-Hernández obtained her Ph.D. in Human Informatics from the University of Tsukuba, Japan. She works on affective computing, physiological computing, embodiment, VR, and human–AI interaction, with a focus on wearable sensing, embodied experiences, and AI-mediated communication. She serves as an Associate Editor of the IEEE Transactions on Affective Computing and has held leadership roles at major conferences, including IEEE FG and ACII. She has also successfully led the organization of several workshops on Cyber-physical technologies for wellbeing, Physiological-based HCI, and Momentary Emotion Elicitation and Capture.</p>
           </div>
         </div>
       </div>
@@ -608,8 +610,7 @@
       </a>
     </div>
     <div class="foot-bottom">
-      <span class="tag">NAIST &amp; HSRM · 2026</span>
-      <span class="tag">Built with <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">GitHub Pages</a></span>
+      <span class="tag">© 2026 Alexander Marquardt</span>
     </div>
     <div class="impressum">
       <img
@@ -619,9 +620,9 @@
       />
       <p>
         <strong>Nara Institute of Science and Technology (NAIST)</strong><br />
-        8916-5 Takayama-cho, Ikoma, Nara 630-0192, Japan &nbsp;·&nbsp;
+        8916-5 Takayama-cho, Ikoma, Nara 630-0192, Japan —
         <a href="https://www.naist.jp/en/" target="_blank" rel="noopener">naist.jp</a><br />
-        CARE Lab &nbsp;·&nbsp; Interactive Media Design Lab &nbsp;·&nbsp;
+        CARE Lab, Interactive Media Design Lab,
         in collaboration with Hochschule RheinMain (HSRM), Germany
       </p>
     </div>
