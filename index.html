@@ -13,7 +13,7 @@
 <!-- ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   /* ---- DESIGN TOKENS ---- */
   :root {
@@ -68,11 +68,11 @@
   header { padding: 72px 0 56px; }
   .eyebrow { display: flex; gap: 14px; align-items: center; margin-bottom: 30px; text-transform: none; font-size: 16px; }
   .eyebrow .line { height: 1px; width: 40px; background: var(--ink); }
-  h1 {
-    font-family: var(--body); font-weight: 700;
-    font-size: clamp(44px, 9vw, 108px); line-height: .94;
-    letter-spacing: -.03em; text-transform: uppercase;
-  }
+h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(44px, 9vw, 108px); line-height: .94;
+  letter-spacing: -.03em; text-transform: uppercase;
+}
   h1 .accent { color: var(--blue); }
   h1 .out { -webkit-text-stroke: 2px var(--ink); color: transparent; }
   .lede { max-width: 560px; margin: 32px 0 0; font-size: clamp(16px, 2.2vw, 20px); color: #3A342C; }
@@ -445,7 +445,7 @@
           Current image: placeholder — replace with an izakaya or restaurant photo
         -->
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJhCsmE0I0TwOvjNr_Xjv-4bs7BbNoXJOnLQ&s"
+          src="https://byfood.b-cdn.net/api/public/assets/9656/content?optimizer=image"
           alt="Izakaya in Japan"
           onerror="this.style.cssText='height:220px;background:#1e1c18;display:block;width:100%';this.removeAttribute('src')"
         />
