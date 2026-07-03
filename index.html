@@ -62,19 +62,19 @@ nav {
 }
 .btn:hover { background: var(--blue); border-color: var(--blue); transform: translateY(-1px); }
 .btn.lg { padding: 16px 30px; font-size: 15px; }
-.menu-btn { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-.menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); transition: transform .2s, opacity .2s; }
-.menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.menu-btn.open span:nth-child(2) { opacity: 0; }
-.menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-@media (max-width: 680px) {
-  .menu-btn { display: flex; }
-  .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 62px; left: 0; right: 0; background: rgba(245,244,240,.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); padding: 8px 24px 24px; }
-  .nav-links.open { display: flex; }
-  .nav-links a.hide-sm { display: block; }
-  .nav-links a:not(.btn) { padding: 13px 0; border-bottom: 1px solid var(--hair); font-size: 15px; }
-  .nav-links .btn { margin-top: 16px; text-align: center; }
-}
+  .menu-btn { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .menu-btn span { display: block; width: 22px; height: 2px; background: var(--ink); transition: transform .2s, opacity .2s; }
+  .menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-btn.open span:nth-child(2) { opacity: 0; }
+  .menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  @media (max-width: 680px) {
+    .menu-btn { display: flex; }
+    .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 62px; left: 0; right: 0; background: rgba(245,244,240,.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hair); padding: 8px 24px 24px; }
+    .nav-links.open { display: flex; }
+    .nav-links a.hide-sm { display: block; }
+    .nav-links a:not(.btn) { padding: 13px 0; border-bottom: 1px solid var(--hair); font-size: 15px; }
+    .nav-links .btn { margin-top: 16px; text-align: center; }
+  }
 
   /* ---- HERO ---- */
   header { padding: 72px 0 56px; }
