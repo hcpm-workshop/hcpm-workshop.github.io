@@ -667,7 +667,6 @@ h1 {
     var url = window.CONTACT_URL;
     if(url) document.getElementById("contact-btn").setAttribute("href", url);
   })();
-
   /* ---- Countdown ---- */
   (function(){
     var el = document.getElementById("countdown");
@@ -683,52 +682,57 @@ h1 {
     }
     tick(); setInterval(tick, 30000);
   })();
-
-  /* ---- Scroll reveal — direction-aware, asymmetric thresholds ---- *
-   *  Fade IN  at 15% visible  (elements appear early, as they enter)
-   *  Fade OUT at 55% visible  (content fades while clearly still on screen)
-   *  Uses scroll events + rAF so entry/exit thresholds can differ.
-   * ----------------------------------------------------------------- */
+  /* ---- Scroll reveal ---- */
   (function(){
     var reveals    = Array.from(document.querySelectorAll('.reveal'));
     var prevRatios = new Map();
     var ticking    = false;
-
     function visRatio(el) {
       var r   = el.getBoundingClientRect();
       var vh  = window.innerHeight;
       var vis = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
       return el.offsetHeight > 0 ? vis / el.offsetHeight : 0;
     }
-
     function update() {
       reveals.forEach(function(el) {
         var ratio    = visRatio(el);
         var prev     = prevRatios.has(el) ? prevRatios.get(el) : -1;
         var isIn     = el.classList.contains('in');
-        var entering = ratio >= prev; // ratio rising → element coming into view
-
+        var entering = ratio >= prev;
         if (!isIn && entering && ratio > 0.15) {
-          // Entering: fade/rise in. First time uses translateY (no .seen yet).
           el.classList.add('in', 'seen');
         } else if (isIn && !entering && ratio < 0.08) {
-          // Exiting: subtle fade — only triggers when almost fully gone.
           el.classList.remove('in');
         }
         prevRatios.set(el, ratio);
       });
       ticking = false;
     }
-
-    update(); // initial pass — show anything already in viewport
-
+    update();
     window.addEventListener('scroll', function() {
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
-
     window.addEventListener('resize', function() {
       if (!ticking) { requestAnimationFrame(update); ticking = true; }
     }, { passive: true });
+  })();
+  /* ---- Mobile menu ---- */
+  (function(){
+    var btn   = document.getElementById('menu-btn');
+    var links = document.querySelector('.nav-links');
+    if (!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
   })();
 </script>
 </body>
