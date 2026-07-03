@@ -203,6 +203,14 @@ h1 {
   #contact .btn:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
   @media (max-width: 680px) { .detail-grid { grid-template-columns: 1fr; gap: 22px; } }
 
+     /* ---- VENUE TEASER ---- */
+     .venue-teaser { width: 100%; overflow: hidden; line-height: 0; }
+     .venue-teaser img {
+       width: 100%; aspect-ratio: 16 / 10;
+       object-fit: cover; object-position: center 38%;
+       display: block;
+     }
+     
   /* ---- FOOTER ---- */
   footer { padding: 32px 0; border-top: 1px solid var(--hair); }
   .foot-logos {
@@ -585,13 +593,6 @@ h1 {
   </div>
 </section>
 
-/* ---- VENUE TEASER ---- */
-.venue-teaser { width: 100%; overflow: hidden; line-height: 0; }
-.venue-teaser img {
-  width: 100%; aspect-ratio: 16 / 10;
-  object-fit: cover; object-position: center 38%;
-  display: block;
-}
 <!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
 <footer>
   <div class="wrap">
