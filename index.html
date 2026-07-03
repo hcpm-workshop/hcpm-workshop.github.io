@@ -149,7 +149,7 @@ h1 {
     color: var(--muted); padding: 32px 0 8px; margin-top: 0;
   }
   .day-label:first-child { padding-top: 0; }
-  .row { display: grid; grid-template-columns: 110px 1fr; gap: 20px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--hair); transition: padding-left .2s; }
+  .row { display: grid; grid-template-columns: 110px 1fr auto; gap: 20px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--hair); transition: padding-left .2s; }
   .row:hover { padding-left: 10px; }
   .row .t { font-family: var(--body); font-size: 15px; color: var(--blue); font-weight: 700; padding-top: 2px; }
   .row .what { font-family: var(--body); font-size: 17px; font-weight: 600; }
@@ -405,45 +405,36 @@ h1 {
     <div class="reveal">
       <div class="day-label">Day 1 — Monday, 14 September 2026 &nbsp;·&nbsp; Expert Input</div>
       <div class="row"><span class="t">9:00</span><div><div class="what">Welcome and Introduction</div><div class="detail">Opening remarks and programme overview.</div></div></div>
-      <div class="row"><span class="t">9:45</span><div><div class="what">Modelling Visual Attention</div></div></div>
-      <div class="row"><span class="t">10:45</span><div><div class="what">Multisensory Perception and Sensory Integration</div></div></div>
-      <div class="row"><span class="t">11:30</span><div><div class="what">Vision Augmentation in Extended Reality</div></div></div>
-      <div class="row"><span class="t">13:30</span><div><div class="what">Human-Machine Interaction</div></div></div>
-      <div class="row"><span class="t">14:15</span><div><div class="what">Comfort Intelligence for Human-Robot Interaction</div></div></div>
-      <div class="row"><span class="t">15:15</span><div><div class="what">Design Thinking Workshop</div></div></div>
-      <div class="row"><span class="t">Evening</span><div><div class="what">Group Finding</div></div></div>
-
+      <div class="row"><span class="t">9:45</span><div><div class="what">Modelling Visual Attention</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Multisensory Perception and Sensory Integration</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">11:30</span><div><div class="what">Vision Augmentation in Extended Reality</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Human-Machine Interaction</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">14:15</span><div><div class="what">Comfort Intelligence for Human-Robot Interaction</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">15:15</span><div><div class="what">Design Thinking Workshop</div></div><span class="row-type">Workshop</span></div>
+      <div class="row"><span class="t">Evening</span><div><div class="what">Group Finding</div></div><span class="row-type">Team Work</span></div>
       <div class="day-label">Day 2 — Tuesday, 15 September 2026 &nbsp;·&nbsp; Research Ideation</div>
-      <div class="row"><span class="t">9:00</span><div><div class="what">Research Ideation Workshop</div><div class="detail">Forming cross-cultural research teams.</div></div></div>
-      <div class="row"><span class="t">10:45</span><div><div class="what">Literature Review</div><div class="detail">Guided team literature review session.</div></div></div>
-      <div class="row"><span class="t">13:30</span><div><div class="what">Concepts and Design</div><div class="detail">Team-based conceptual design and planning.</div></div></div>
-      <div class="row"><span class="t">16:00</span><div><div class="what">Group Presentation and Q&amp;A</div></div></div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Research Ideation Workshop</div><div class="detail">Forming cross-cultural research teams.</div></div><span class="row-type">Workshop</span></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Literature Review</div><div class="detail">Guided team literature review session.</div></div><span class="row-type">Team Work</span></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Concepts and Design</div><div class="detail">Team-based conceptual design and planning.</div></div><span class="row-type">Team Work</span></div>
+      <div class="row"><span class="t">16:00</span><div><div class="what">Group Presentation and Q&amp;A</div></div><span class="row-type">Presentation</span></div>
       <div class="row"><span class="t">Evening</span><div><div class="what">Welcome Dinner</div><div class="detail">Informal dinner with faculty and all participants.</div></div></div>
-
       <div class="day-label">Day 3 — Wednesday, 16 September 2026 &nbsp;·&nbsp; Prototype and Test</div>
-      <div class="row"><span class="t">9:00</span><div><div class="what">Designing User Studies for XR Research</div></div></div>
-      <div class="row"><span class="t">10:45</span><div><div class="what">Research Question and Study Design</div><div class="detail">Define your research question and plan the study approach.</div></div></div>
-      <div class="row"><span class="t">13:30</span><div><div class="what">Prototype and Refinement</div><div class="detail">Iterative prototyping with peer and faculty feedback.</div></div></div>
-
+      <div class="row"><span class="t">9:00</span><div><div class="what">Designing User Studies for XR Research</div></div><span class="row-type">Lecture</span></div>
+      <div class="row"><span class="t">10:45</span><div><div class="what">Research Question and Study Design</div><div class="detail">Define your research question and plan the study approach.</div></div><span class="row-type">Team Work</span></div>
+      <div class="row"><span class="t">13:30</span><div><div class="what">Prototype and Refinement</div><div class="detail">Iterative prototyping with peer and faculty feedback.</div></div><span class="row-type">Team Work</span></div>
       <div class="day-label">Day 4 — Thursday, 17 September 2026</div>
       <div class="row-excursion">
         <div class="t">Full Day</div>
         <div class="what">Guided Excursion</div>
         <div class="detail">Guided full-day hiking excursion in the Nara/Kyoto area (TBD). Final destination confirmed closer to the event.</div>
       </div>
-
       <div class="day-label">Day 5 — Friday, 18 September 2026 &nbsp;·&nbsp; Share and Go Further</div>
-      <div class="row"><span class="t">9:00</span><div><div class="what">Final Presentations</div><div class="detail">Each group presents results and research outcomes.</div></div></div>
+      <div class="row"><span class="t">9:00</span><div><div class="what">Final Presentations</div><div class="detail">Each group presents results and research outcomes.</div></div><span class="row-type">Presentation</span></div>
       <div class="row"><span class="t">13:30</span><div><div class="what">Closing Session</div><div class="detail">Reflections, next steps, and farewell.</div></div></div>
     </div>
-
     <!-- Social highlights -->
     <div class="social-highlights reveal" style="margin-top:52px">
       <div class="social-card">
-        <!--
-          Replace with your own photo: upload to repo root and set src="your-dinner-photo.jpg"
-          Current image: placeholder — replace with an izakaya or restaurant photo
-        -->
         <img
           src="https://byfood.b-cdn.net/api/public/assets/9656/content?optimizer=image"
           alt="Izakaya in Japan"
@@ -456,10 +447,6 @@ h1 {
         </div>
       </div>
       <div class="social-card">
-        <!--
-          Replace with your own photo: upload to the repo root and set src="your-excursion-photo.jpg"
-          Current image: Kasuga Primeval Forest, Nara (UNESCO World Heritage)
-        -->
         <img
           src="https://commons.wikimedia.org/wiki/Special:FilePath/20100716_Nara_Kasuga-taisha_2196.jpg"
           alt="Forest path in Nara, Japan"
