@@ -103,6 +103,12 @@ h1 {
   .head .num { font-family: var(--body); color: var(--blue); font-weight: 700; font-size: 13px; }
   h2 { font-family: var(--body); font-weight: 700; font-size: clamp(26px, 4.5vw, 40px); letter-spacing: -.025em; line-height: 1.04; }
 
+  .venue-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); margin-bottom: 32px; }
+.venue-split-img { overflow: hidden; line-height: 0; min-height: 280px; }
+.venue-split-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
+.venue-split-info { padding: 32px 28px; }
+@media (max-width: 680px) { .venue-split { grid-template-columns: 1fr; } .venue-split-img { min-height: 200px; } }
+     
   /* ---- OVERVIEW (single column) ---- */
   .overview-text p { font-size: 17px; color: #3A342C; max-width: 720px; }
   .overview-text p + p { margin-top: 16px; }
@@ -205,13 +211,6 @@ h1 {
   #contact .btn:hover { background: var(--paper); border-color: var(--paper); color: var(--ink); }
   @media (max-width: 680px) { .detail-grid { grid-template-columns: 1fr; gap: 22px; } }
 
-     /* ---- VENUE TEASER ---- */
-.venue-teaser { width: 100%; overflow: hidden; line-height: 0; }
-.venue-teaser img {
-  width: 100%; aspect-ratio: 32 / 10;
-  object-fit: cover; object-position: center 60%;
-  display: block;
-     }
   /* ---- FOOTER ---- */
   footer { padding: 32px 0; border-top: 1px solid var(--hair); }
   .foot-logos {
@@ -562,35 +561,37 @@ h1 {
 
   </div>
 </section>
-
-<!-- ── VENUE TEASER ─────────────────────────────────────────────────────── -->
-<div class="venue-teaser">
-  <img
-    src="https://www.naist.jp/en/toppage-banner/img/main_entrance.png"
-    alt="Main entrance gate of Nara Institute of Science and Technology (NAIST), Ikoma, Japan"
-  />
-</div>
      
 <!-- ── 06 VENUE / CONTACT (dark) ─────────────────────────────────────────── -->
 <section id="contact">
   <div class="wrap">
     <div class="head reveal"><h2>Venue and Contact</h2></div>
-    <div class="detail-grid reveal">
-      <div>
-        <div class="k">When</div>
-        <div class="v">14–18 Sep 2026<small>09:00–17:00 JST</small></div>
+    <div class="venue-split reveal">
+      <div class="venue-split-img">
+        <img
+          src="https://www.naist.jp/en/toppage-banner/img/main_entrance.png"
+          alt="Main entrance gate of Nara Institute of Science and Technology (NAIST), Ikoma, Japan"
+        />
       </div>
-      <div>
-        <div class="k">Where</div>
-        <div class="v">NAIST, Ikoma<small>Nara Prefecture, Japan</small></div>
-      </div>
-      <div>
-        <div class="k">Cost</div>
-        <div class="v">Free of charge<small>for selected participants</small></div>
+      <div class="venue-split-info">
+        <div class="detail-grid" style="margin: 0 0 32px;">
+          <div>
+            <div class="k">When</div>
+            <div class="v">14–18 Sep 2026<small>09:00–17:00 JST</small></div>
+          </div>
+          <div>
+            <div class="k">Where</div>
+            <div class="v">NAIST, Ikoma<small>Nara Prefecture, Japan</small></div>
+          </div>
+          <div>
+            <div class="k">Cost</div>
+            <div class="v">Free of charge<small>for selected participants</small></div>
+          </div>
+        </div>
+        <p class="tag" style="margin-bottom:22px">Participation is open to Master's and PhD students in relevant fields. Enquiries welcome.</p>
+        <a class="btn lg" href="mailto:marquardt@ieee.org?subject=HCPM%20Summer%20School%202026" id="contact-btn">Email to enquire →</a>
       </div>
     </div>
-    <p class="tag reveal" style="margin-bottom:22px">Participation is open to Master's and PhD students in relevant fields. Enquiries welcome.</p>
-    <a class="btn lg reveal" href="mailto:marquardt@ieee.org?subject=HCPM%20Summer%20School%202026" id="contact-btn">Email to enquire →</a>
   </div>
 </section>
 
