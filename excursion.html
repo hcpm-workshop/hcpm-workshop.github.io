@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guided Excursion — HCPM Summer School 2026</title>
+<meta name="description" content="Details for the HCPM Summer School Guided Excursion — Thursday, 17 September 2026, Ikoma / Mount Ikoma area, Japan." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper:   #F5F4F0;
+    --ink:     #141210;
+    --blue:    #1A44C0;
+    --hair:    #DDDAD3;
+    --muted:   #44423E;
+    --max:     840px;
+    --display: "Space Grotesk", system-ui, sans-serif;
+    --body:    "Inter", system-ui, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font-family: var(--body); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  a { color: inherit; }
+  .tag { font-family: var(--body); font-size: 14px; font-weight: 500; letter-spacing: .02em; color: var(--muted); }
+
+  /* ---- MINIMAL NAV ---- */
+  nav { border-bottom: 1px solid var(--hair); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .brand { font-family: var(--body); font-weight: 700; letter-spacing: .04em; font-size: 14px; text-decoration: none; }
+  .brand .dot { color: var(--blue); }
+  .back-link { text-decoration: none; transition: color .2s; }
+  .back-link:hover { color: var(--ink); }
+
+  /* ---- PAGE HEADER ---- */
+  .page-head { padding: 56px 0 32px; border-bottom: 2px solid var(--blue); }
+  .page-head .sc-tag { font-family: var(--body); font-size: 14px; color: var(--blue); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
+  .page-head h1 {
+    font-family: var(--display); font-weight: 700; text-transform: uppercase;
+    font-size: clamp(30px, 5vw, 46px); letter-spacing: -.02em; line-height: 1;
+  }
+  .page-head p { max-width: 560px; margin-top: 16px; font-size: 17px; color: #3A342C; }
+
+  /* ---- DETAILS ---- */
+  .details-section { padding: 40px 0 80px; }
+  .venue-info { border-top: 1px solid var(--hair); padding-top: 22px; }
+  .venue-info div { display: flex; gap: 14px; font-size: 15px; padding: 10px 0; border-bottom: 1px solid var(--hair); }
+  .venue-info div:last-child { border-bottom: none; }
+  .venue-info .k { font-weight: 600; color: var(--muted); min-width: 100px; flex-shrink: 0; text-transform: uppercase; font-size: 12px; letter-spacing: .04em; padding-top: 2px; }
+  .venue-info a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
+  .venue-info em { color: var(--muted); font-style: italic; }
+
+  .back-bottom { margin-top: 40px; }
+  .back-bottom a { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
+  .back-bottom a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<!-- ── MINIMAL NAV ──────────────────────────────────────────────────────── -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Home">HCPM<span class="dot">·</span>XR 2026</a>
+    <a class="tag back-link" href="index.html#schedule">← Back to main site</a>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ──────────────────────────────────────────────────────── -->
+<header class="page-head">
+  <div class="wrap">
+    <div class="sc-tag">Day 4 &nbsp;·&nbsp; Thursday, 17 September 2026 &nbsp;·&nbsp; Full Day</div>
+    <h1>Guided Excursion</h1>
+    <p>A full day out exploring the local area — a light walk through forest trails and scenic surroundings, with no hiking experience required.</p>
+  </div>
+</header>
+
+<!-- ── DETAILS ──────────────────────────────────────────────────────────── -->
+<section class="details-section">
+  <div class="wrap">
+    <div class="venue-info">
+      <div><span class="k">Destination</span><em>Likely the Mount Ikoma area — final destination to be confirmed closer to the event.</em></div>
+      <div><span class="k">Meeting Point</span><em>To be confirmed.</em></div>
+      <div><span class="k">Departure</span><em>To be confirmed.</em></div>
+      <div><span class="k">Fitness</span><span>No hiking experience required. Basic walking fitness is recommended — expect a few hours on foot on mixed terrain.</span></div>
+      <div><span class="k">Transport</span><em>Group transport / bus plan to follow closer to the date.</em></div>
+    </div>
+    <div class="back-bottom">
+      <a href="index.html#schedule">← Back to main site</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>
