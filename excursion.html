@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Guided Excursion — HCPM Summer School 2026</title>
-<meta name="description" content="Details for the HCPM Summer School Guided Excursion — Thursday, 17 September 2026, Ikoma / Mount Ikoma area, Japan." />
+<meta name="description" content="Details for the HCPM Summer School Guided Excursion — Thursday, 17 September 2026, Mount Ikoma, Japan." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -29,7 +29,6 @@
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   a { color: inherit; }
   .tag { font-family: var(--body); font-size: 14px; font-weight: 500; letter-spacing: .02em; color: var(--muted); }
-
   /* ---- MINIMAL NAV ---- */
   nav { border-bottom: 1px solid var(--hair); }
   .nav-in { display: flex; align-items: center; justify-content: space-between; height: 62px; }
@@ -37,7 +36,6 @@
   .brand .dot { color: var(--blue); }
   .back-link { text-decoration: none; transition: color .2s; }
   .back-link:hover { color: var(--ink); }
-
   /* ---- PAGE HEADER ---- */
   .page-head { padding: 56px 0 32px; border-bottom: 2px solid var(--blue); }
   .page-head .sc-tag { font-family: var(--body); font-size: 14px; color: var(--blue); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
@@ -46,7 +44,6 @@
     font-size: clamp(30px, 5vw, 46px); letter-spacing: -.02em; line-height: 1;
   }
   .page-head p { max-width: 560px; margin-top: 16px; font-size: 17px; color: #3A342C; }
-
   /* ---- DETAILS ---- */
   .details-section { padding: 40px 0 80px; }
   .venue-info { border-top: 1px solid var(--hair); padding-top: 22px; }
@@ -55,7 +52,20 @@
   .venue-info .k { font-weight: 600; color: var(--muted); min-width: 100px; flex-shrink: 0; text-transform: uppercase; font-size: 12px; letter-spacing: .04em; padding-top: 2px; }
   .venue-info a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
   .venue-info em { color: var(--muted); font-style: italic; }
-
+  .transport-img { width: 140px; max-width: 100%; height: auto; border: 1px solid var(--hair); }
+  /* ---- ROUTE ---- */
+  .route-img { width: 100%; height: auto; display: block; margin-top: 40px; border: 1px solid var(--hair); }
+  .route-caption { font-family: var(--body); font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .route-heading { font-family: var(--body); font-weight: 700; font-size: 14px; color: var(--blue); letter-spacing: .04em; text-transform: uppercase; margin: 36px 0 16px; }
+  .route-list { list-style: none; counter-reset: stop; }
+  .route-list li { counter-increment: stop; display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--hair); align-items: flex-start; }
+  .route-list li:last-child { border-bottom: none; }
+  .route-list li::before {
+    content: counter(stop); font-family: var(--body); font-weight: 700; color: var(--blue);
+    min-width: 22px; padding-top: 1px;
+  }
+  .route-list .stop-name { font-size: 15px; font-weight: 600; }
+  .route-list .stop-detail { display: block; font-size: 14px; color: var(--muted); margin-top: 2px; }
   .back-bottom { margin-top: 40px; }
   .back-bottom a { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
   .back-bottom a:hover { text-decoration: underline; }
@@ -69,26 +79,66 @@
     <a class="tag back-link" href="index.html#schedule" onclick="window.close();">← Back to main site</a>
   </div>
 </nav>
-
 <!-- ── PAGE HEADER ──────────────────────────────────────────────────────── -->
 <header class="page-head">
   <div class="wrap">
     <div class="sc-tag">Day 4 &nbsp;·&nbsp; Thursday, 17 September 2026 &nbsp;·&nbsp; Full Day</div>
     <h1>Guided Excursion</h1>
-    <p>A full day out exploring the local area — a light walk through forest trails and scenic surroundings, with no hiking experience required.</p>
+    <p>A full day on Mount Ikoma — cable car up, a visit to Hōzan-ji Temple, a hike to the summit, and natural trails along the way. No hiking experience required.</p>
   </div>
 </header>
-
 <!-- ── DETAILS ──────────────────────────────────────────────────────────── -->
 <section class="details-section">
   <div class="wrap">
     <div class="venue-info">
-      <div><span class="k">Destination</span><em>Likely the Mount Ikoma area — final destination to be confirmed closer to the event.</em></div>
-      <div><span class="k">Meeting Point</span><em>To be confirmed.</em></div>
-      <div><span class="k">Departure</span><em>To be confirmed.</em></div>
+      <div><span class="k">Destination</span><span>Mount Ikoma</span></div>
+      <div><span class="k">Meeting Point</span><a href="https://www.google.com/maps/search/?api=1&query=Ikoma+Torii-mae+Station" target="_blank" rel="noopener">Ikoma Torii-mae Station →</a></div>
+      <div><span class="k">Departure</span><span>9:00 AM</span></div>
       <div><span class="k">Fitness</span><span>No hiking experience required. Basic walking fitness is recommended — expect a few hours on foot on mixed terrain.</span></div>
-      <div><span class="k">Transport</span><em>Group transport / bus plan to follow closer to the date.</em></div>
+      <div>
+        <span class="k">Transport</span>
+        <div>
+          <img class="transport-img" src="images/excursion-bus.png" alt="Recommended bus route from NAIST to the meeting point" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <p class="tag" style="margin-top:6px; display:none;">Bus route image coming soon — recommended route from NAIST to the meeting point.</p>
+          <p class="tag" style="margin-top:6px; font-size:12px;">Recommended bus route from NAIST to Ikoma Torii-mae Station.</p>
+        </div>
+      </div>
     </div>
+
+    <img class="route-img" src="https://images.ctfassets.net/9uvqwr58loxx/A00947_NP_iyk_1001_..._..jpg/445a1f46b35cce98b2c3ab09a39bc155/NP_iyk_1001______.jpg?fit=thumb&q=70&h=800&w=1300" alt="Ikoma Cable car" />
+    <p class="route-caption">The Ikoma Cable, one of Japan's oldest funicular railways, connecting Torii-mae Station to Hōzanji.</p>
+
+    <div class="route-heading">Route</div>
+    <ol class="route-list">
+      <li>
+        <div>
+          <span class="stop-name">Cable car ride to Hōzanji Station</span>
+          <span class="stop-detail">Skip the urban stretch — ride straight up to the temple.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="stop-name">Hōzan-ji Temple &amp; Hannya-kutsu</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="stop-name">Hike to Ikoma-Sanjō summit</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="stop-name">Ikoma Sanjō Amusement Park</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <span class="stop-name">Natural trails</span>
+          <span class="stop-detail">Forest paths lined with statues, and other scenic surroundings.</span>
+        </div>
+      </li>
+    </ol>
+
     <div class="back-bottom">
       <a href="index.html#schedule" onclick="window.close();">← Back to main site</a>
     </div>
