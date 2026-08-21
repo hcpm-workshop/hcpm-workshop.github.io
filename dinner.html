@@ -29,7 +29,6 @@
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
   a { color: inherit; }
   .tag { font-family: var(--body); font-size: 14px; font-weight: 500; letter-spacing: .02em; color: var(--muted); }
-
   /* ---- MINIMAL NAV ---- */
   nav { border-bottom: 1px solid var(--hair); }
   .nav-in { display: flex; align-items: center; justify-content: space-between; height: 62px; }
@@ -37,7 +36,6 @@
   .brand .dot { color: var(--blue); }
   .back-link { text-decoration: none; transition: color .2s; }
   .back-link:hover { color: var(--ink); }
-
   /* ---- PAGE HEADER ---- */
   .page-head { padding: 56px 0 32px; border-bottom: 2px solid var(--blue); }
   .page-head .sc-tag { font-family: var(--body); font-size: 14px; color: var(--blue); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 10px; }
@@ -46,7 +44,6 @@
     font-size: clamp(30px, 5vw, 46px); letter-spacing: -.02em; line-height: 1;
   }
   .page-head p { max-width: 560px; margin-top: 16px; font-size: 17px; color: #3A342C; }
-
   /* ---- DETAILS ---- */
   .details-section { padding: 40px 0 80px; }
   .venue-info { border-top: 1px solid var(--hair); padding-top: 22px; }
@@ -55,7 +52,7 @@
   .venue-info .k { font-weight: 600; color: var(--muted); min-width: 100px; flex-shrink: 0; text-transform: uppercase; font-size: 12px; letter-spacing: .04em; padding-top: 2px; }
   .venue-info a { color: var(--blue); text-decoration: underline; text-underline-offset: 2px; }
   .venue-info em { color: var(--muted); font-style: italic; }
-
+  .venue-info img { max-width: 100%; height: auto; border: 1px solid var(--hair); }
   .back-bottom { margin-top: 40px; }
   .back-bottom a { font-family: var(--body); font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; }
   .back-bottom a:hover { text-decoration: underline; }
@@ -69,7 +66,6 @@
     <a href="index.html#schedule" onclick="window.close();">← Back to main site</a>
   </div>
 </nav>
-
 <!-- ── PAGE HEADER ──────────────────────────────────────────────────────── -->
 <header class="page-head">
   <div class="wrap">
@@ -78,7 +74,6 @@
     <p>An informal dinner bringing together all participants and faculty — a chance to share a meal, meet your research team, and experience Japanese dining culture.</p>
   </div>
 </header>
-
 <!-- ── DETAILS ──────────────────────────────────────────────────────────── -->
 <section class="details-section">
   <div class="wrap">
@@ -87,8 +82,9 @@
       <div><span class="k">Venue</span><span>Jidori Sumibiyaki Toriatsukai Setsumeisho, Ikoma (地鶏炭火焼 鶏扱説明所 生駒店)</span></div>
       <div><span class="k">Address</span><span>10-36 Kitashin-cho, Ikoma, Nara Prefecture, Japan</span></div>
       <div><span class="k">Access</span><span>Approx. 4 min walk from Kintetsu Ikoma Station (north exit), or approx. 9 min walk from Kintetsu Ikoma Cable Torii-mae Station</span></div>
-      <div><span class="k">Map</span><a href="https://toriatsukaisetumeisyoikoma.owst.jp/en/map" target="_blank" rel="noopener">View location →</a></div>
-      <div><span class="k">Transport</span><em>Group transport plan to follow closer to the date.</em></div>
+      <div><span class="k">Map</span><a href="https://www.google.com/maps/search/?api=1&query=34.6942961,135.6977369" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      <div><span class="k">Website</span><a href="https://toriatsukaisetumeisyoikoma.owst.jp/en/" target="_blank" rel="noopener">Restaurant website →</a></div>
+      <div><span class="k">Transport</span><img src="images/dinner-bus.png" alt="Dinner bus transport plan" /></div>
     </div>
     <div class="back-bottom">
       <a href="index.html#schedule" onclick="window.close();">← Back to main site</a>
