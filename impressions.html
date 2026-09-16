@@ -83,7 +83,7 @@
     color: var(--muted); opacity: .55;
   }
   .gallery-slot svg { width: 28px; height: 28px; }
-  .gallery-photo { aspect-ratio: 4 / 3; overflow: hidden; }
+  .gallery-photo { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
   .gallery-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gallery-note {
     margin-top: 40px; text-align: center;
@@ -141,11 +141,11 @@
 <section class="gallery-section">
   <div class="wrap">
     <div class="gallery-grid">
-      <div class="gallery-photo"><img src="images/impressions/101.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
-      <div class="gallery-photo"><img src="images/impressions/102.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
-      <div class="gallery-photo"><img src="images/impressions/103.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
-      <div class="gallery-photo"><img src="images/impressions/104.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
-      <div class="gallery-photo"><img src="images/impressions/105.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
+      <a class="gallery-photo" href="images/impressions/101.jpeg" target="_blank"><img src="images/impressions/101.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></a>
+      <a class="gallery-photo" href="images/impressions/102.jpeg" target="_blank"><img src="images/impressions/102.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></a>
+      <a class="gallery-photo" href="images/impressions/103.jpeg" target="_blank"><img src="images/impressions/103.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></a>
+      <a class="gallery-photo" href="images/impressions/104.jpeg" target="_blank"><img src="images/impressions/104.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" style="object-position: center top;" /></a>
+      <a class="gallery-photo" href="images/impressions/105.jpeg" target="_blank"><img src="images/impressions/105.jpeg" alt="HCPM Summer School 2026 impression" loading="lazy" /></a>
       <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
     </div>
     <div class="gallery-note">
