@@ -83,6 +83,8 @@
     color: var(--muted); opacity: .55;
   }
   .gallery-slot svg { width: 28px; height: 28px; }
+  .gallery-photo { aspect-ratio: 4 / 3; overflow: hidden; }
+  .gallery-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .gallery-note {
     margin-top: 40px; text-align: center;
     font-family: var(--body); font-size: 14px; font-weight: 600;
@@ -114,7 +116,16 @@
 <nav>
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="Home">HCPM<span class="dot">·</span>XR 2026</a>
-    <a class="tag back-link" href="index.html" onclick="window.close();">← Back to main site</a>
+    <div class="nav-links">
+      <a href="index.html#about">Overview</a>
+      <a href="index.html#schedule">Schedule</a>
+      <a href="index.html#organisers">Organisers</a>
+      <a class="current" href="impressions.html">Impressions</a>
+      <a class="btn" href="index.html#contact">Contact</a>
+    </div>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -122,7 +133,7 @@
 <header class="page-head">
   <div class="wrap">
     <h1>Impressions</h1>
-    <p>Photos and highlights from the HCPM Summer School will be added here after the event — 14–18 September 2026, NAIST, Ikoma, Japan.</p>
+    <p>Photos and highlights from the HCPM Summer School, 14–18 September 2026, NAIST, Ikoma, Japan. Updated throughout the week.</p>
   </div>
 </header>
 
@@ -130,16 +141,16 @@
 <section class="gallery-section">
   <div class="wrap">
     <div class="gallery-grid">
-      <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
-      <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
-      <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
-      <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
-      <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
+      <div class="gallery-photo"><img src="images/impressions/101.jpg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="images/impressions/102.jpg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="images/impressions/103.jpg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="images/impressions/104.jpg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
+      <div class="gallery-photo"><img src="images/impressions/105.jpg" alt="HCPM Summer School 2026 impression" loading="lazy" /></div>
       <div class="gallery-slot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.2-2h5.6L16 5"/></svg></div>
     </div>
     <div class="gallery-note">
-      Coming soon
-      <span>Check back after the workshop in September 2026.</span>
+      More coming soon
+      <span>Check back throughout the week for more from the summer school.</span>
     </div>
   </div>
 </section>
@@ -161,7 +172,7 @@
     <div class="foot-bottom">
       <span class="tag">© 2026 Alexander Marquardt</span>
       <div class="foot-links">
-        <a href="index.html" onclick="window.close();">← Back to main site</a>
+        <a href="index.html">← Back to main site</a>
       </div>
     </div>
   </div>
