@@ -436,8 +436,8 @@ h1 {
       <div class="row"><span class="t">10:00–11:30</span><div><div class="what">Research Ideation Workshop</div></div><span class="row-type">Workshop</span></div>
       <div class="row-break"><span class="t">11:30–13:00</span><span class="what">Lunch</span></div>
       <div class="row"><span class="t">13:00–15:00</span><div><div class="what">Literature Review and Concept Design</div></div><span class="row-type">Team Work</span></div>
-      <div class="row"><span class="t">15:00–16:00</span><div><div class="what">Presentation Preparation</div></div><span class="row-type">Team Work</span></div>
-      <div class="row"><span class="t">16:00–17:00</span><div><div class="what">Group Presentation and Q&amp;A</div></div><span class="row-type">Presentation</span></div>
+      <div class="row"><span class="t">15:00–16:00</span><div><div class="what">Mid-term Presentation Preparation</div></div><span class="row-type">Team Work</span></div>
+      <div class="row"><span class="t">16:00–17:00</span><div><div class="what">Mit-term Presentations</div></div><span class="row-type">Presentation</span></div>
       <div class="row"><span class="t">18:00</span><div><div class="what">Welcome Dinner</div></div></div>
 
       <div class="day-label">Wednesday, 16 September 2026 &nbsp;·&nbsp; Design and Evaluate &nbsp;·&nbsp; <span class="room-tag">Rooms P3 + S3</span></div>
@@ -647,7 +647,7 @@ h1 {
     if(isNaN(target)){ el.textContent = ""; return; }
     function tick(){
       var d = target - Date.now();
-      if(d <= 0){ el.textContent = "Happening now →"; return; }
+      if(d <= 0){ el.textContent = "Event Ended"; return; }
       var days = Math.floor(d / 86400000);
       var hrs  = Math.floor(d % 86400000 / 3600000);
       var mins = Math.floor(d % 3600000 / 60000);
